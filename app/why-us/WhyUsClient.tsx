@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import {
   Zap, Shield, Brain, Clock, Users, TrendingUp,
-  Code2, GitBranch, Star, Award, Globe, Lock,
+  Code2, GitBranch, Star, Award, Globe, Lock, Layers
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CTABanner from "@/components/sections/CTABanner";
@@ -12,110 +12,69 @@ import Testimonials from "@/components/sections/Testimonials";
 // Bento grid items with varying sizes
 const BENTO_ITEMS = [
   {
-    icon: Brain,
-    title: "Senior-Only Teams",
-    description:
-      "Every project is led and executed by senior engineers with 8+ years of experience. No juniors on your critical path.",
+    icon: Layers,
+    title: "Full-Service, One Roof",
+    description: "From branding and web development to SEO, paid ads, and lead generation — you get everything under one roof. No juggling five agencies. No communication gaps.",
     color: "#0066FF",
     span: "col-span-2 row-span-2",
     big: true,
-    metric: "8+ yrs avg",
-    metricLabel: "Team Experience",
+    metric: "1 Roof",
+    metricLabel: "Everything You Need",
   },
   {
-    icon: Clock,
-    title: "72-Hour Kickoff",
-    description: "From signed contract to first working prototype in 72 hours.",
+    icon: Brain,
+    title: "Strategy Before Execution",
+    description: "We start with a deep audit of your business, your competition, and your market. Every campaign is built on research and strategy — not guesswork.",
     color: "#10B981",
     span: "col-span-1 row-span-1",
-    metric: "72h",
-    metricLabel: "To First Prototype",
-  },
-  {
-    icon: Shield,
-    title: "Zero-Debt Policy",
-    description: "We write code we'd stake our reputation on. No shortcuts.",
-    color: "#8B5CF6",
-    span: "col-span-1 row-span-1",
-    metric: "0",
-    metricLabel: "Shortcuts Taken",
+    metric: "100%",
+    metricLabel: "Strategy-Backed",
   },
   {
     icon: TrendingUp,
-    title: "ROI-Focused Engineering",
-    description:
-      "We measure our success by your business outcomes, not just code shipped.",
-    color: "#F59E0B",
-    span: "col-span-2 row-span-1",
-    metric: "$2B+",
-    metricLabel: "Value Generated",
-  },
-  {
-    icon: GitBranch,
-    title: "Full Transparency",
-    description:
-      "Weekly demos, open code repos, real-time dashboards — you're never in the dark.",
-    color: "#06B6D4",
-    span: "col-span-1 row-span-2",
-    metric: "100%",
-    metricLabel: "Visibility",
-  },
-  {
-    icon: Globe,
-    title: "Global Availability",
-    description: "Timezone-compatible teams for US, EU, and APAC clients.",
-    color: "#EC4899",
+    title: "Transparent Reporting",
+    description: "You get real-time access to your campaign dashboards. No waiting for monthly reports. No surprises. Just clear data, all the time.",
+    color: "#8B5CF6",
     span: "col-span-1 row-span-1",
     metric: "24/7",
-    metricLabel: "Coverage",
+    metricLabel: "Dashboard Access",
+  },
+  {
+    icon: Users,
+    title: "Dedicated Account Managers",
+    description: "You'll never feel like just another client. Every Aqora partner gets a dedicated account manager who knows your business inside out.",
+    color: "#F59E0B",
+    span: "col-span-2 row-span-1",
+    metric: "1-on-1",
+    metricLabel: "Direct Support",
   },
   {
     icon: Star,
-    title: "98% Retention Rate",
-    description: "Our clients keep coming back. That says everything.",
-    color: "#F97316",
-    span: "col-span-1 row-span-1",
-    metric: "98%",
-    metricLabel: "Client Retention",
+    title: "Proven Track Record",
+    description: "150+ campaigns delivered. 95% client retention. Over $50M in revenue generated for our clients. The numbers speak for themselves.",
+    color: "#06B6D4",
+    span: "col-span-1 row-span-2",
+    metric: "$50M+",
+    metricLabel: "Revenue Generated",
   },
   {
     icon: Lock,
-    title: "Instant NDA",
-    description: "NDAs signed before any discussion. Your IP stays yours.",
-    color: "#0066FF",
+    title: "No Lock-In Contracts",
+    description: "We earn your business every month. Our clients stay because of results — not because they're trapped in a contract.",
+    color: "#EC4899",
     span: "col-span-1 row-span-1",
-    metric: "<1hr",
-    metricLabel: "NDA Turnaround",
-  },
-  {
-    icon: Award,
-    title: "Elite Standards",
-    description: "We hold ourselves to Google/Amazon SRE standards — for every client.",
-    color: "#8B5CF6",
-    span: "col-span-1 row-span-1",
-    metric: "99.99%",
-    metricLabel: "Uptime SLA",
-  },
-  {
-    icon: Code2,
-    title: "Clean Code Guarantee",
-    description: "Maintainable, documented, tested code you can hand off to any team.",
-    color: "#10B981",
-    span: "col-span-2 row-span-1",
-    metric: ">90%",
-    metricLabel: "Test Coverage",
+    metric: "0",
+    metricLabel: "Lock-in Contracts",
   },
 ];
 
 const COMPARISONS = [
-  { feature: "Senior engineer teams", us: true, others: false },
-  { feature: "Fixed-price engagements available", us: true, others: false },
-  { feature: "72-hour project kickoff", us: true, others: false },
-  { feature: "Dedicated Slack channel", us: true, others: false },
-  { feature: "Weekly video demos", us: true, others: false },
-  { feature: "Post-launch 90-day support", us: true, others: false },
-  { feature: "Architecture documentation", us: true, others: false },
-  { feature: "Zero technical debt policy", us: true, others: false },
+  { feature: "Strategy Before Execution", us: true, others: false },
+  { feature: "No Lock-In Contracts", us: true, others: false },
+  { feature: "Real-time Dashboards", us: true, others: false },
+  { feature: "Dedicated Account Managers", us: true, others: false },
+  { feature: "Full-service capabilities", us: true, others: false },
+  { feature: "Focus on Revenue and ROAS", us: true, others: false },
 ];
 
 export default function WhyUsClient() {
@@ -133,7 +92,7 @@ export default function WhyUsClient() {
             className="text-xs font-mono text-electric uppercase tracking-widest mb-6"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            The Difference
+            Why Aqora
           </motion.p>
 
           <motion.h1
@@ -143,9 +102,9 @@ export default function WhyUsClient() {
             className="text-5xl md:text-7xl font-display font-extrabold text-ghost leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Not Another Agency.
+            The Agency That Treats Your Business
             <br />
-            <span className="text-gradient-electric">A Technical Partner.</span>
+            <span className="text-gradient-electric">Like Its Own.</span>
           </motion.h1>
 
           <motion.p
@@ -154,8 +113,7 @@ export default function WhyUsClient() {
             transition={{ delay: 0.2 }}
             className="text-xl text-mist max-w-2xl leading-relaxed"
           >
-            Most agencies take your money and ship something barely functional.
-            We take your vision and deliver engineering that defines careers and builds companies.
+            We&apos;re not here to impress you with buzzwords and pretty reports. We&apos;re here to grow your business. Here&apos;s why hundreds of brands choose Aqora.
           </motion.p>
         </div>
       </section>
@@ -249,14 +207,14 @@ export default function WhyUsClient() {
             className="text-4xl font-display font-extrabold text-ghost mb-16 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Nexus vs. The Rest
+            Aqora vs. The Rest
           </motion.h2>
 
           <div className="glass border border-white/[0.08] rounded-2xl overflow-hidden">
             {/* Header */}
             <div className="grid grid-cols-3 px-6 py-4 border-b border-white/[0.06] bg-white/[0.02]">
               <span className="text-sm text-smoke">Feature</span>
-              <span className="text-sm font-medium text-electric text-center">Nexus Agency</span>
+              <span className="text-sm font-medium text-electric text-center">Aqora</span>
               <span className="text-sm text-mist text-center">Typical Agency</span>
             </div>
 

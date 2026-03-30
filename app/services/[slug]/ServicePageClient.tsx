@@ -22,65 +22,96 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 // Service-specific details
 const SERVICE_DETAILS: Record<string, { features: string[]; process: string[]; tech: string[] }> = {
-  "ai-services": {
+  "ecommerce": {
     features: [
-      "Custom ML model development & fine-tuning",
-      "LLM integration (GPT-4, Claude, Gemini, Llama)",
-      "Computer vision & NLP pipelines",
-      "MLOps & model deployment at scale",
-      "AI-powered analytics dashboards",
-      "Intelligent automation workflows",
+      "Ecommerce store setup and optimization (Shopify, WooCommerce, Custom)",
+      "Conversion rate optimization (CRO)",
+      "Product listing and catalog management",
+      "Abandoned cart recovery strategies",
+      "Customer retention and loyalty programs",
+      "Ecommerce SEO",
+      "Email and SMS marketing for ecommerce"
     ],
-    process: ["Discovery & Data Audit", "Model Architecture Design", "Training & Validation", "Production Deployment", "Monitoring & Iteration"],
-    tech: ["PyTorch", "TensorFlow", "LangChain", "Hugging Face", "Ray", "MLflow", "FastAPI", "Docker"],
+    process: ["Strategy", "Setup & Optimization", "Launch", "Growth & Retention"],
+    tech: ["Shopify", "WooCommerce", "Next.js", "Klaviyo", "Stripe"],
   },
-  "generative-ai": {
+  "smm": {
     features: [
-      "RAG (Retrieval-Augmented Generation) systems",
-      "Custom AI agents & multi-agent orchestration",
-      "Knowledge base construction & vector DBs",
-      "Prompt engineering & optimization",
-      "Multimodal AI applications (text + image + audio)",
-      "AI chatbots with domain expertise",
+      "Social media strategy and content calendar",
+      "Content creation (graphics, reels, captions)",
+      "Community management and engagement",
+      "Instagram, Facebook, TikTok, LinkedIn, YouTube management",
+      "Influencer collaboration and outreach",
+      "Paid social campaigns (Meta, TikTok, LinkedIn Ads)",
+      "Monthly analytics and reporting"
     ],
-    process: ["Use Case Validation", "Data Pipeline Setup", "Model Selection & RAG Design", "Agent Development", "Integration & Launch"],
-    tech: ["LangChain", "LlamaIndex", "Pinecone", "Weaviate", "OpenAI", "Anthropic", "Mistral", "ChromaDB"],
+    process: ["Strategy", "Content Creation", "Community Management", "Paid Social", "Analytics"],
+    tech: ["Meta Ads", "TikTok Ads", "Later", "Hootsuite", "Figma"],
   },
-  "web-dev": {
+  "seo": {
     features: [
-      "Next.js / React high-performance applications",
-      "Design systems & component libraries",
-      "API design & backend integration",
-      "SEO-first architecture & Core Web Vitals",
-      "Authentication, payments & third-party APIs",
-      "Progressive Web Apps (PWA)",
+      "SEO audit and competitor analysis",
+      "Keyword research and strategy",
+      "On-page optimization",
+      "Technical SEO (site speed, Core Web Vitals, schema)",
+      "Link building and off-page SEO",
+      "Local SEO for location-based businesses",
+      "Monthly performance reporting"
     ],
-    process: ["Design & Prototyping", "Technical Architecture", "Development Sprints", "QA & Testing", "Launch & Optimization"],
-    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Redis", "Vercel", "Stripe"],
+    process: ["Audit", "Keyword Strategy", "On-Page & Technical", "Link Building", "Reporting"],
+    tech: ["Ahrefs", "Semrush", "Google Analytics", "Google Search Console", "Screaming Frog"],
   },
-  "blockchain": {
+  "development": {
     features: [
-      "EVM-compatible smart contract development",
-      "DeFi protocol design & implementation",
-      "NFT marketplaces & collection contracts",
-      "DAO governance frameworks",
-      "Cross-chain bridge architecture",
-      "Tokenomics design & audit preparation",
+      "Business websites and landing pages",
+      "Ecommerce store development",
+      "Custom web application development",
+      "iOS and Android app development",
+      "UI/UX design",
+      "Website maintenance and support",
+      "Speed and performance optimization"
     ],
-    process: ["Protocol Design", "Smart Contract Dev", "Security Audit", "Testnet Deployment", "Mainnet Launch"],
-    tech: ["Solidity", "Hardhat", "Foundry", "ethers.js", "The Graph", "IPFS", "OpenZeppelin", "Chainlink"],
+    process: ["UX/UI Design", "Frontend Dev", "Backend Integration", "QA Testing", "Launch & Maintenance"],
+    tech: ["Next.js", "React Native", "Tailwind CSS", "Node.js", "Figma"],
   },
-  "infrastructure": {
+  "performance-marketing": {
     features: [
-      "Cloud architecture on AWS, GCP, Azure",
-      "Kubernetes orchestration & Helm charts",
-      "CI/CD pipeline design (GitHub Actions, ArgoCD)",
-      "Terraform & Infrastructure as Code",
-      "Observability stacks (Prometheus, Grafana)",
-      "Zero-downtime deployment strategies",
+      "Google Search & Display Ads",
+      "Meta Ads (Facebook & Instagram)",
+      "TikTok and YouTube Ads",
+      "Retargeting campaigns",
+      "Landing page creation and CRO",
+      "Full-funnel campaign strategy",
+      "Weekly reporting and performance reviews"
     ],
-    process: ["Infrastructure Audit", "Architecture Design", "IaC Implementation", "Pipeline Setup", "Monitoring & Hardening"],
-    tech: ["Kubernetes", "Terraform", "Docker", "AWS", "GitHub Actions", "Prometheus", "Grafana", "Helm"],
+    process: ["Funnel Strategy", "Ad Creation", "Campaign Launch", "A/B Testing", "Scaling"],
+    tech: ["Google Ads", "Meta Ads", "TikTok Ads Manager", "Google Tag Manager", "Unbounce"],
+  },
+  "lead-generation": {
+    features: [
+      "Lead generation strategy and funnel design",
+      "Landing page creation",
+      "Lead magnet development",
+      "Email and WhatsApp nurture sequences",
+      "CRM setup and integration",
+      "LinkedIn lead generation",
+      "B2B and B2C lead campaigns"
+    ],
+    process: ["Lead Magnet Strategy", "Funnel Build", "Traffic Generation", "Nurture Sequences", "CRM Handoff"],
+    tech: ["HubSpot", "Salesforce", "ActiveCampaign", "LinkedIn Ads", "Zapier"],
+  },
+  "branding": {
+    features: [
+      "Brand strategy and positioning",
+      "Logo design and visual identity",
+      "Brand guidelines and style guide",
+      "Brand messaging and tone of voice",
+      "Marketing collateral design",
+      "Social media branding kit",
+      "Brand refresh and rebranding"
+    ],
+    process: ["Discovery", "Brand Strategy", "Visual Identity Concept", "Guidelines Creation", "Rollout"],
+    tech: ["Figma", "Adobe CC", "Illustrator", "Photoshop", "Canva"],
   },
 };
 
@@ -180,7 +211,6 @@ export default function ServicePageClient({ service }: Props) {
                   style={{ backgroundColor: service.color }}
                 >
                   Start This Project
-                  <ArrowRight className="w-4 h-4" />
                 </MagneticButton>
                 <Link
                   href="/contact"

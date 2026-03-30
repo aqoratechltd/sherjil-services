@@ -7,23 +7,23 @@ import FloatingCTA from "@/components/ui/FloatingCTA";
 
 export const metadata: Metadata = {
   title: {
-    default: "Nexus Agency — Premium Software Engineering",
-    template: "%s | Nexus Agency",
+    default: "Aqora — Digital Marketing Agency",
+    template: "%s | Aqora",
   },
   description:
-    "Elite software engineering agency specializing in AI, Web3, FinTech, SaaS, and enterprise-scale systems. We architect, build, and scale software that moves industries.",
+    "We Grow Bold Brands Online. From ecommerce stores to global enterprises — we strategize, execute, and scale digital marketing that delivers real, measurable results.",
   keywords: [
-    "software agency",
-    "AI development",
-    "web development",
-    "blockchain",
-    "fintech",
-    "SaaS development",
+    "digital marketing",
+    "ecommerce solutions",
+    "SEO",
+    "performance marketing",
+    "lead generation",
+    "branding",
   ],
   openGraph: {
     type: "website",
-    title: "Nexus Agency — Premium Software Engineering",
-    description: "Elite software engineering for ambitious companies.",
+    title: "Aqora — Digital Marketing Agency",
+    description: "We Grow Bold Brands Online. Strategy, execution, and real results.",
   },
 };
 

@@ -12,27 +12,27 @@ import { STATS } from "@/lib/utils";
 const VALUES = [
   {
     icon: Target,
-    title: "Precision Over Speed",
+    title: "Results First",
     description:
-      "We prefer shipping the right thing over shipping the fast thing. Every architectural decision is deliberate.",
+      "Every campaign, every strategy, every decision is measured against one question: does it grow your business?",
   },
   {
     icon: Zap,
-    title: "Performance by Default",
+    title: "Radical Transparency",
     description:
-      "Sub-second load times, zero-downtime deployments, and 99.99% uptime aren't aspirations — they're our baseline.",
+      "No smoke and mirrors. You'll always know exactly what we're doing, why we're doing it, and what it's delivering.",
   },
   {
     icon: Shield,
-    title: "Security First",
+    title: "Strategic Thinking",
     description:
-      "Every system we build is designed with threat models in mind. Security is architecture, not an afterthought.",
+      "We don't execute blindly. We diagnose your business, identify your biggest opportunities, and build strategies that fit your goals.",
   },
   {
     icon: Globe,
-    title: "Global Scale Thinking",
+    title: "Long-Term Partnership",
     description:
-      "We design for 10x your current scale from day one. Growing pains are preventable.",
+      "We don't chase quick wins. We build sustainable growth systems that compound over time.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function AboutClient() {
             className="text-xs font-mono text-electric uppercase tracking-widest mb-6"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Our Story
+            Who We Are
           </motion.p>
 
           <motion.h1
@@ -75,9 +75,9 @@ export default function AboutClient() {
             className="text-5xl md:text-7xl font-display font-extrabold text-ghost leading-tight mb-8"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built by Engineers
+            Built for Brands
             <br />
-            <span className="text-gradient-electric">For Builders.</span>
+            <span className="text-gradient-electric">That Mean Business.</span>
           </motion.h1>
 
           <motion.p
@@ -86,9 +86,7 @@ export default function AboutClient() {
             transition={{ delay: 0.25 }}
             className="text-xl text-mist max-w-2xl leading-relaxed"
           >
-            Nexus started as a small team of senior engineers who were tired of watching great
-            ideas fail due to poor technical execution. We set out to be the technical partner
-            we wished we&apos;d had.
+            Aqora is a results-driven digital marketing agency helping businesses grow online through bold strategy, creative execution, and data-backed decisions. We don&apos;t believe in vanity metrics — we care about revenue, leads, and real growth.
           </motion.p>
         </div>
       </section>
@@ -138,15 +136,15 @@ export default function AboutClient() {
                 {/* Code snippet decoration */}
                 <div className="absolute bottom-8 left-6 right-6 p-4 rounded-xl bg-void/80 border border-white/[0.08] font-mono text-xs" style={{ fontFamily: "var(--font-mono)" }}>
                   <span className="text-electric">const</span>{" "}
-                  <span className="text-ghost">nexus</span>{" "}
+                  <span className="text-ghost">aqora</span>{" "}
                   <span className="text-mist">= </span>
                   <span className="text-electric">{"{"}</span>
                   <br />
                   &nbsp;&nbsp;<span className="text-smoke">mission:</span>{" "}
-                  <span className="text-ghost">&apos;Build the future&apos;</span>
+                  <span className="text-ghost">&apos;Growth&apos;</span>
                   <br />
                   &nbsp;&nbsp;<span className="text-smoke">standard:</span>{" "}
-                  <span className="text-ghost">&apos;Elite&apos;</span>
+                  <span className="text-ghost">&apos;Bold&apos;</span>
                   <br />
                   <span className="text-electric">{"}"}</span>
                 </div>
@@ -178,7 +176,7 @@ export default function AboutClient() {
                 className="text-xs font-mono text-electric uppercase tracking-widest mb-4"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
-                2019 — Present
+                Our Story
               </motion.p>
 
               <motion.h2
@@ -189,33 +187,19 @@ export default function AboutClient() {
                 className="text-4xl font-display font-extrabold text-ghost mb-6 leading-tight"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                From a 4-Person Team to a Global Engineering Force
+                Aqora was founded with one mission: to give businesses access to the kind of marketing that actually works.
               </motion.h2>
 
               <div className="space-y-4 text-mist leading-relaxed">
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
-                  We started in a shared workspace in 2019 — four engineers who believed that software agencies had a quality problem. Most were order-takers who shipped fast and moved on. We chose the opposite path.
+                  We saw too many brands getting burned by agencies promising the world and delivering nothing. So we built something different — a team of specialists obsessed with outcomes, not outputs.
                 </motion.p>
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                  Today, Nexus is a 50-person engineering firm with specialists across AI, blockchain, cloud, and mobile. We&apos;ve delivered over 200 projects and generated billions in client value — not by doing more, but by doing it right.
-                </motion.p>
-                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.25 }}>
-                  Every project we take on is an extension of our reputation. That&apos;s why we turn down projects that aren&apos;t the right fit, and why 98% of our clients come back for more.
+                  Today, we partner with ecommerce brands, startups, and established businesses across industries to help them grow faster, smarter, and more profitably online.
                 </motion.p>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.35 }}
-                className="mt-8"
-              >
-                <Link href="/ceo" className="flex items-center gap-2 text-electric text-sm font-medium hover:gap-3 transition-all">
-                  Meet our CEO
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
+              {/* Removed CEO Link */}
             </div>
           </div>
         </div>

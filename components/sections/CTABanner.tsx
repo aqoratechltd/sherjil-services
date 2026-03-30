@@ -37,24 +37,22 @@ export default function CTABanner() {
             className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-ghost mb-6 leading-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Ready to Build
+            Ready to Scale
             <br />
-            <span className="text-gradient-electric">Something Legendary?</span>
+            <span className="text-gradient-electric">Your Business?</span>
           </h2>
 
           <p className="text-mist text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Let&apos;s talk about your vision. We&apos;ll map out the architecture, timeline, and
-            team — all in a free 30-minute strategy call.
+            Let&apos;s talk about your goals. We&apos;ll map out a strategy, timeline, and plan — all in a free 30-minute discovery call.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <MagneticButton
               onClick={() => setModalOpen(true)}
-              className="group relative flex items-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden"
+              className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden w-full sm:w-auto whitespace-nowrap"
             >
               <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative">Book Your Free Call</span>
-              <ArrowRight className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
 
             <p className="text-sm text-smoke">

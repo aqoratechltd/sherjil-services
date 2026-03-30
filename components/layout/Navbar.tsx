@@ -11,27 +11,19 @@ import MagneticButton from "@/components/ui/MagneticButton";
 const NAV_LINKS = [
   { label: "Services", href: "/services", hasDropdown: true },
   { label: "About", href: "/about" },
-  { label: "Our CEO", href: "/ceo" },
   { label: "Why Us", href: "/why-us" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Contact", href: "/contact" },
 ];
 
 const SERVICE_DROPDOWN = [
-  { label: "AI Services", href: "/services/ai-services", tag: "New" },
-  { label: "Generative AI", href: "/services/generative-ai", tag: "Hot" },
-  { label: "Web Development", href: "/services/web-dev" },
-  { label: "App Development", href: "/services/app-dev" },
-  { label: "Infrastructure", href: "/services/infrastructure" },
-  { label: "Blockchain & Crypto", href: "/services/blockchain" },
-  { label: "Cloud Solutions", href: "/services/cloud" },
-  { label: "FinTech", href: "/services/fintech" },
-  { label: "SaaS Development", href: "/services/saas" },
-  { label: "System Design", href: "/services/system-design" },
-  { label: "E-Commerce", href: "/services/ecommerce" },
-  { label: "CRM Systems", href: "/services/crm" },
-  { label: "QA & Testing", href: "/services/qa" },
-  { label: "Tech Staffing", href: "/services/staffing" },
-  { label: "Video Editing", href: "/services/video-editing" },
+  { label: "Ecommerce Solutions", href: "/services/ecommerce", tag: "Hot" },
+  { label: "Social Media Marketing (SMM)", href: "/services/smm" },
+  { label: "SEO", href: "/services/seo" },
+  { label: "Web & App Development", href: "/services/development" },
+  { label: "Performance Marketing", href: "/services/performance-marketing", tag: "Ads" },
+  { label: "Lead Generation", href: "/services/lead-generation" },
+  { label: "Branding", href: "/services/branding" },
 ];
 
 export default function Navbar() {
@@ -76,7 +68,7 @@ export default function Navbar() {
                 className="font-display font-bold text-lg text-ghost tracking-tight"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Nexus<span className="text-electric">.</span>Agency
+                Aqora
               </span>
             </Link>
 
@@ -154,7 +146,7 @@ export default function Navbar() {
                 className="px-5 py-2 rounded-xl bg-electric hover:bg-electric-dim text-white text-sm font-medium transition-colors duration-200 electric-glow"
                 onClick={() => window.open("https://calendly.com/your-agency/30min", "_blank")}
               >
-                Book a Call
+                Book a Free Call
               </MagneticButton>
             </div>
 
@@ -208,7 +200,7 @@ export default function Navbar() {
                   onClick={() => window.open("https://calendly.com/your-agency/30min", "_blank")}
                   className="w-full py-4 rounded-xl bg-electric text-white font-medium text-lg electric-glow"
                 >
-                  Book a Call →
+                  Book a Free Call →
                 </button>
               </motion.div>
             </div>

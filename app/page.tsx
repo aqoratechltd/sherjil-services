@@ -6,7 +6,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Nexus Agency — Premium Software Engineering",
+  title: "Aqora — Digital Marketing Agency",
 };
 
 export default function HomePage() {

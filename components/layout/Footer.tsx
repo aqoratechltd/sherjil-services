@@ -6,26 +6,26 @@ import { Zap, Twitter, Linkedin, Github, Mail } from "lucide-react";
 
 const FOOTER_LINKS = {
   Services: [
-    { label: "AI Services", href: "/services/ai-services" },
-    { label: "Web Development", href: "/services/web-dev" },
-    { label: "App Development", href: "/services/app-dev" },
-    { label: "Blockchain", href: "/services/blockchain" },
-    { label: "Infrastructure", href: "/services/infrastructure" },
-    { label: "View All", href: "/services" },
+    { label: "Ecommerce Solutions", href: "/services/ecommerce" },
+    { label: "Social Media Marketing", href: "/services/smm" },
+    { label: "SEO", href: "/services/seo" },
+    { label: "Web & App Development", href: "/services/development" },
+    { label: "Performance Marketing", href: "/services/performance-marketing" },
+    { label: "Lead Generation", href: "/services/lead-generation" },
+    { label: "Branding", href: "/services/branding" },
   ],
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Our CEO", href: "/ceo" },
     { label: "Why Us", href: "/why-us" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "Contact", href: "/contact" },
     { label: "Book a Call", href: "https://calendly.com/your-agency/30min" },
   ],
-  Solutions: [
-    { label: "FinTech", href: "/services/fintech" },
-    { label: "SaaS", href: "/services/saas" },
-    { label: "E-Commerce", href: "/services/ecommerce" },
-    { label: "Cloud", href: "/services/cloud" },
-    { label: "QA & Testing", href: "/services/qa" },
+  Connect: [
+    { label: "Instagram", href: "#" },
+    { label: "LinkedIn", href: "#" },
+    { label: "Facebook", href: "#" },
+    { label: "WhatsApp", href: "#" },
   ],
 };
 
@@ -48,18 +48,18 @@ export default function Footer() {
                 className="font-display font-bold text-lg text-ghost"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Nexus<span className="text-electric">.</span>Agency
+                Aqora
               </span>
             </Link>
             <p className="text-mist text-sm leading-relaxed max-w-xs mb-6">
-              We architect, build, and scale the software that moves industries. Premium engineering for ambitious companies.
+              Aqora — We grow bold brands online through strategy, creativity, and relentless execution.
             </p>
             <div className="flex items-center gap-3">
               {[
                 { icon: Twitter, href: "#" },
                 { icon: Linkedin, href: "#" },
                 { icon: Github, href: "#" },
-                { icon: Mail, href: "mailto:hello@nexus.agency" },
+                { icon: Mail, href: "mailto:hello@aqora.agency" },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-smoke font-mono" style={{ fontFamily: "var(--font-mono)" }}>
-            © {new Date().getFullYear()} Nexus Agency. All rights reserved.
+            © 2026 Aqora. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (

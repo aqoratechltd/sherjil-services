@@ -12,9 +12,9 @@ import CalendlyModal from "@/components/ui/CalendlyModal";
 interface FormData {
   name: string;
   email: string;
-  company: string;
+  businessName: string;
+  phone: string;
   service: string;
-  budget: string;
   message: string;
 }
 
@@ -25,25 +25,14 @@ interface FormErrors {
 }
 
 const SERVICES_LIST = [
-  "AI / Machine Learning",
-  "Web Development",
-  "App Development",
-  "Blockchain / Web3",
-  "Cloud Infrastructure",
-  "FinTech",
-  "SaaS Development",
-  "System Design",
-  "E-Commerce",
+  "Ecommerce Solutions",
+  "Social Media Marketing",
+  "SEO",
+  "Web & App Development",
+  "Performance Marketing",
+  "Lead Generation",
+  "Branding",
   "Other",
-];
-
-const BUDGETS = [
-  "$10K – $25K",
-  "$25K – $50K",
-  "$50K – $100K",
-  "$100K – $250K",
-  "$250K+",
-  "Not sure yet",
 ];
 
 function validateForm(data: FormData): FormErrors {
@@ -64,9 +53,9 @@ export default function ContactClient() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    company: "",
+    businessName: "",
+    phone: "",
     service: "",
-    budget: "",
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -126,9 +115,9 @@ export default function ContactClient() {
             className="text-5xl md:text-7xl font-display font-extrabold text-ghost leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Let&apos;s Build
+            Let&apos;s Build Something
             <br />
-            <span className="text-gradient-electric">Something Great.</span>
+            <span className="text-gradient-electric">Great Together.</span>
           </motion.h1>
 
           <motion.p
@@ -137,7 +126,7 @@ export default function ContactClient() {
             transition={{ delay: 0.2 }}
             className="text-xl text-mist max-w-xl leading-relaxed"
           >
-            Tell us about your project. We respond within 2 hours during business hours.
+            Whether you&apos;re starting from scratch or ready to scale, we&apos;re here to help. Reach out and let&apos;s talk about your goals.
           </motion.p>
         </div>
       </section>
@@ -182,11 +171,11 @@ export default function ContactClient() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "hello@nexus.agency",
-                    href: "mailto:hello@nexus.agency",
+                    value: "hello@aqora.agency",
+                    href: "mailto:hello@aqora.agency",
                   },
-                  { icon: Phone, label: "Phone", value: "+1 (555) 000-1234", href: "tel:+15550001234" },
-                  { icon: MapPin, label: "HQ", value: "San Francisco, CA", href: "#" },
+                  { icon: Phone, label: "WhatsApp", value: "+1 (555) 000-1234", href: "https://wa.me/15550001234" },
+                  { icon: MapPin, label: "Location", value: "New York, NY", href: "#" },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <a
                     key={label}
@@ -260,7 +249,7 @@ export default function ContactClient() {
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>
                         <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Name *
+                          Full Name
                         </label>
                         <input
                           name="name"
@@ -280,7 +269,25 @@ export default function ContactClient() {
                       </div>
                       <div>
                         <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Email *
+                          Business Name
+                        </label>
+                        <input
+                          name="businessName"
+                          type="text"
+                          placeholder="Acme Corp"
+                          value={formData.businessName}
+                          onChange={handleChange}
+                          className={inputClass}
+                          style={{ fontFamily: "var(--font-body)" }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Row 2 */}
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
+                          Email Address
                         </label>
                         <input
                           name="email"
@@ -298,77 +305,52 @@ export default function ContactClient() {
                           </p>
                         )}
                       </div>
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="grid sm:grid-cols-2 gap-6">
                       <div>
                         <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Company
+                          Phone Number
                         </label>
                         <input
-                          name="company"
+                          name="phone"
                           type="text"
-                          placeholder="Acme Corp"
-                          value={formData.company}
+                          placeholder="+1 (555) 000-0000"
+                          value={formData.phone}
                           onChange={handleChange}
                           className={inputClass}
                           style={{ fontFamily: "var(--font-body)" }}
                         />
                       </div>
-                      <div>
-                        <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Service Needed
-                        </label>
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                          className={inputClass}
-                          style={{ fontFamily: "var(--font-body)" }}
-                        >
-                          <option value="" className="bg-graphite">Select a service</option>
-                          {SERVICES_LIST.map((s) => (
-                            <option key={s} value={s} className="bg-graphite">
-                              {s}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
                     </div>
 
-                    {/* Budget */}
+                    {/* Service */}
                     <div>
                       <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                        Budget Range
+                        Service Interested In
                       </label>
-                      <div className="flex flex-wrap gap-2">
-                        {BUDGETS.map((b) => (
-                          <button
-                            key={b}
-                            type="button"
-                            onClick={() => setFormData((prev) => ({ ...prev, budget: b }))}
-                            className={`px-3 py-1.5 rounded-lg text-xs transition-all duration-150 ${
-                              formData.budget === b
-                                ? "bg-electric text-white border border-electric"
-                                : "glass border border-white/[0.08] text-mist hover:border-electric/30 hover:text-ghost"
-                            }`}
-                          >
-                            {b}
-                          </button>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className={inputClass}
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        <option value="" className="bg-graphite">Select a service</option>
+                        {SERVICES_LIST.map((s) => (
+                          <option key={s} value={s} className="bg-graphite">
+                            {s}
+                          </option>
                         ))}
-                      </div>
+                      </select>
                     </div>
 
                     {/* Message */}
                     <div>
                       <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                        Project Details *
+                        Tell us about your project
                       </label>
                       <textarea
                         name="message"
                         rows={5}
-                        placeholder="Tell us about your project — what you're building, the timeline, key challenges..."
+                        placeholder="What are your goals?"
                         value={formData.message}
                         onChange={handleChange}
                         className={`${inputClass} resize-none`}
@@ -385,18 +367,17 @@ export default function ContactClient() {
                     {/* Submit */}
                     <MagneticButton
                       as="button"
-                      className="group w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow hover:bg-electric-dim transition-colors overflow-hidden relative"
+                      className="group w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow hover:bg-electric-dim transition-colors overflow-hidden relative whitespace-nowrap"
                     >
                       <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                       {status === "loading" ? (
                         <>
-                          <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                          <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin shrink-0" />
                           <span className="relative">Sending...</span>
                         </>
                       ) : (
                         <>
                           <span className="relative">Send Message</span>
-                          <Send className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </MagneticButton>

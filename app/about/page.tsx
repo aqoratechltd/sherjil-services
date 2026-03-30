@@ -3,7 +3,7 @@ import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "The story, mission, and people behind Nexus Agency.",
+  description: "The story, mission, and people behind Aqora.",
 };
 
 export default function AboutPage() {

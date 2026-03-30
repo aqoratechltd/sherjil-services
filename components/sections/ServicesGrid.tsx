@@ -42,21 +42,13 @@ export default function ServicesGrid() {
 
   // Sort to put featured items first in bento positions
   const sorted = [
-    SERVICES.find((s) => s.id === "ai-services")!,
-    SERVICES.find((s) => s.id === "infrastructure")!,
-    SERVICES.find((s) => s.id === "saas")!,
-    SERVICES.find((s) => s.id === "fintech")!,
-    SERVICES.find((s) => s.id === "system-design")!,
-    SERVICES.find((s) => s.id === "generative-ai")!,
-    SERVICES.find((s) => s.id === "web-dev")!,
-    SERVICES.find((s) => s.id === "app-dev")!,
-    SERVICES.find((s) => s.id === "cloud")!,
-    SERVICES.find((s) => s.id === "qa")!,
-    SERVICES.find((s) => s.id === "blockchain")!,
     SERVICES.find((s) => s.id === "ecommerce")!,
-    SERVICES.find((s) => s.id === "crm")!,
-    SERVICES.find((s) => s.id === "staffing")!,
-    SERVICES.find((s) => s.id === "video-editing")!,
+    SERVICES.find((s) => s.id === "smm")!,
+    SERVICES.find((s) => s.id === "seo")!,
+    SERVICES.find((s) => s.id === "development")!,
+    SERVICES.find((s) => s.id === "performance-marketing")!,
+    SERVICES.find((s) => s.id === "lead-generation")!,
+    SERVICES.find((s) => s.id === "branding")!,
   ];
 
   return (
@@ -71,7 +63,7 @@ export default function ServicesGrid() {
             className="text-xs font-mono text-electric uppercase tracking-widest mb-4"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            What We Build
+            What We Do
           </motion.p>
           <div className="flex items-end justify-between flex-wrap gap-4">
             <motion.h2
@@ -84,7 +76,7 @@ export default function ServicesGrid() {
             >
               Services That
               <br />
-              <span className="text-gradient-electric">Scale With You</span>
+              <span className="text-gradient-electric">Scale Your Business</span>
             </motion.h2>
             <motion.div
               initial={{ opacity: 0 }}

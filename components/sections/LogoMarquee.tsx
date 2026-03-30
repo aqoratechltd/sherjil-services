@@ -14,7 +14,7 @@ export default function LogoMarquee() {
         className="text-center text-xs font-mono text-smoke uppercase tracking-widest mb-10"
         style={{ fontFamily: "var(--font-mono)" }}
       >
-        Trusted by teams at
+        Trusted by brands across the globe
       </p>
 
       {/* Row 1 — forward */}

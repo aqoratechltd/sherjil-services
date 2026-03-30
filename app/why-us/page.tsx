@@ -3,7 +3,7 @@ import WhyUsClient from "./WhyUsClient";
 
 export const metadata: Metadata = {
   title: "Why Us",
-  description: "What makes Nexus Agency different from every other software firm.",
+  description: "What makes Aqora different from every other marketing agency.",
 };
 
 export default function WhyUsPage() {

@@ -66,8 +66,8 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-mono)" }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-          Now accepting Q2 2025 projects
-          <span className="text-mist">— Limited slots available</span>
+          Now onboarding new clients for April 2026
+          <span className="text-mist">— Limited spots available</span>
         </motion.div>
 
         {/* Main heading */}
@@ -78,14 +78,14 @@ export default function Hero() {
           className="font-display font-extrabold leading-[0.88] mb-6"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span className="block text-[clamp(3rem,10vw,9rem)] text-ghost">
-            We Build
+          <span className="block text-[clamp(2.5rem,8vw,7rem)] text-ghost">
+            We Grow Bold
           </span>
-          <span className="block text-[clamp(3rem,10vw,9rem)] text-gradient-electric">
-            Elite
+          <span className="block text-[clamp(2.5rem,8vw,7rem)] text-gradient-electric">
+            Brands
           </span>
-          <span className="block text-[clamp(3rem,10vw,9rem)] text-ghost">
-            Software.
+          <span className="block text-[clamp(2.5rem,8vw,7rem)] text-ghost">
+            Online.
           </span>
         </motion.h1>
 
@@ -96,9 +96,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg md:text-xl text-mist max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          From AI systems to FinTech platforms — we architect, engineer, and
-          scale software that defines industry standards.
-          <span className="text-ghost font-medium"> No compromises.</span>
+          From ecommerce stores to global enterprises — we strategize, execute, and scale digital marketing that delivers real, measurable results.
+          <span className="text-ghost font-medium"> No fluff. No excuses.</span>
         </motion.p>
 
         {/* CTA buttons */}
@@ -110,15 +109,13 @@ export default function Hero() {
         >
           <MagneticButton
             onClick={() => setModalOpen(true)}
-            className="group relative flex items-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden"
+            className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden w-full sm:w-auto whitespace-nowrap"
           >
             <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative">Book a Strategy Call</span>
-            <ArrowRight className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </MagneticButton>
 
-          <MagneticButton className="group flex items-center gap-2 px-6 py-4 rounded-xl glass border border-white/[0.08] text-ghost text-base font-medium hover:border-electric/30 transition-all duration-200">
-            <Play className="w-4 h-4 text-electric" />
+          <MagneticButton className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl glass border border-white/[0.08] text-ghost text-base font-medium hover:border-electric/30 transition-all duration-200 w-full sm:w-auto whitespace-nowrap">
             See Our Work
           </MagneticButton>
         </motion.div>
@@ -131,10 +128,10 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-8 mt-16"
         >
           {[
-            { value: "200+", label: "Projects Delivered" },
-            { value: "98%", label: "Client Retention" },
-            { value: "50+", label: "Engineers" },
-            { value: "$2B+", label: "Value Created" },
+            { value: "150+", label: "Campaigns Delivered" },
+            { value: "95%", label: "Client Retention Rate" },
+            { value: "3x–10x", label: "Average ROAS" },
+            { value: "$50M+", label: "Revenue Generated" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <p
