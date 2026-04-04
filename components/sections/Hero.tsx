@@ -62,12 +62,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-electric/20 text-xs font-mono text-electric mb-8"
+          className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-2 rounded-full glass border border-electric/20 text-xs font-mono text-electric mb-8 max-w-full"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-          Now onboarding new clients for April 2026
-          <span className="text-mist">— Limited spots available</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse shrink-0" />
+          <span>Now onboarding new clients for April 2026</span>
+          <span className="text-mist hidden sm:inline">— Limited spots available</span>
         </motion.div>
 
         {/* Main heading */}

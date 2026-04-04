@@ -104,6 +104,7 @@ export default function ServicesGrid() {
             const Icon = ICON_MAP[service.icon] || Brain;
             const span = BENTO_SPANS[i] || "col-span-1";
             const isFeatured = service.featured;
+            const isEcommerce = i === 0;
 
             return (
               <motion.div
@@ -116,15 +117,24 @@ export default function ServicesGrid() {
                 <Link
                   href={`/services/${service.id}`}
                   className={cn(
-                    "service-card group relative flex flex-col h-full min-h-[180px] md:min-h-[200px] p-5 md:p-6 bg-obsidian hover:bg-graphite transition-colors duration-300 overflow-hidden",
+                    "service-card group relative flex flex-col h-full min-h-[180px] md:min-h-[200px] p-5 md:p-6 transition-colors duration-300 overflow-hidden",
+                    isEcommerce
+                      ? "bg-[#0d1f17] hover:bg-[#112a1e] border-t-2"
+                      : "bg-obsidian hover:bg-graphite",
                     isFeatured && "md:min-h-[280px]"
                   )}
+                  style={isEcommerce ? { borderTopColor: service.color } : undefined}
                 >
-                  {/* Hover glow */}
+                  {/* Background glow — always on for ecommerce, hover-only for others */}
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className={cn(
+                      "absolute inset-0 transition-opacity duration-500",
+                      isEcommerce ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                    )}
                     style={{
-                      background: `radial-gradient(ellipse at top left, ${service.color}10 0%, transparent 60%)`,
+                      background: isEcommerce
+                        ? `radial-gradient(ellipse at top left, ${service.color}20 0%, transparent 55%)`
+                        : `radial-gradient(ellipse at top left, ${service.color}10 0%, transparent 60%)`,
                     }}
                   />
 

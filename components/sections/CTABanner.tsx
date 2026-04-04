@@ -21,7 +21,7 @@ export default function CTABanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative glass border border-electric/20 rounded-3xl p-12 md:p-20 text-center overflow-hidden"
+          className="relative glass border border-electric/20 rounded-3xl p-6 sm:p-10 md:p-14 lg:p-20 text-center overflow-hidden"
         >
           {/* Glow orbs */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 bg-electric/20 blur-[60px] rounded-full" />

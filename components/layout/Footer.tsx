@@ -102,7 +102,7 @@ export default function Footer() {
           <p className="text-xs text-smoke font-mono" style={{ fontFamily: "var(--font-mono)" }}>
             © 2026 Aqora. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 md:gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
               <Link
                 key={item}
