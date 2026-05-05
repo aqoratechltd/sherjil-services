@@ -57,15 +57,14 @@ export function ExitIntentPopup() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+              <button
                 className="flex-1 bg-accent text-black font-bold py-3 px-6 rounded hover:bg-accent/90 transition-colors"
                 onClick={() => {
                   setIsVisible(false)
-                  // In a real app, open Calendly hook/modal here
-                  window.dispatchEvent(new Event('open-calendly'))
+                  window.open("https://wa.me/923273001777", "_blank")
                 }}
               >
-                Book Free Call
+                Chat on WhatsApp
               </button>
               <button 
                 className="flex-1 bg-transparent border border-border text-foreground font-medium py-3 px-6 rounded hover:bg-white/5 transition-colors"

@@ -1,16 +1,17 @@
 "use client";
 
 import { useRef, useState } from "react";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ChevronDown, Play } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
-import CalendlyModal from "@/components/ui/CalendlyModal";
+
+const WA_URL = "https://wa.me/923273001777";
 
 const HERO_WORDS = ["Software", "Systems", "Futures"];
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  const [modalOpen, setModalOpen] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -91,8 +92,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-base md:text-xl text-mist max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 sm:px-0"
         >
-          From ecommerce stores to global enterprises — we strategize, execute, and scale digital marketing that delivers real, measurable results.
-          <span className="text-ghost font-medium"> No fluff. No excuses.</span>
+          From branding to growth —{" "}
+          <span className="text-ghost font-medium">AQORA TECH</span> builds, manages, and scales your business with 360° digital solutions.
         </motion.p>
 
         {/* CTA buttons */}
@@ -103,7 +104,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <MagneticButton
-            onClick={() => setModalOpen(true)}
+            onClick={() => window.open(WA_URL, "_blank")}
             className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden w-full sm:w-auto whitespace-nowrap"
           >
             <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -164,7 +165,6 @@ export default function Hero() {
         </span>
       </motion.div>
 
-      <CalendlyModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

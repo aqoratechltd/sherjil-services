@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -118,17 +119,16 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-electric rounded-lg electric-glow group-hover:scale-110 transition-transform duration-300" />
-                <Zap className="absolute inset-0 m-auto w-4 h-4 text-white" />
-              </div>
-              <span
-                className="font-display font-bold text-lg text-ghost tracking-tight"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Aqora
-              </span>
+            <Link href="/" className="group overflow-hidden flex items-center" style={{ height: '28px', width: '140px' }}>
+              <Image
+                src="/logo.png"
+                alt="Aqora"
+                width={400}
+                height={135}
+                className="w-[400px] h-auto group-hover:opacity-90 transition-opacity duration-300 flex-shrink-0"
+                style={{ marginTop: '-48px', marginBottom: '-48px' }}
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -178,7 +178,7 @@ export default function Navbar() {
 
               <MagneticButton
                 className="px-5 py-2 rounded-xl bg-electric hover:bg-electric-dim text-white text-sm font-medium transition-colors duration-200 electric-glow"
-                onClick={() => window.open("https://calendly.com/your-agency/30min", "_blank")}
+                onClick={() => window.open("https://wa.me/923273001777", "_blank")}
               >
                 Book a Free Call
               </MagneticButton>
@@ -356,7 +356,7 @@ export default function Navbar() {
                 className="mt-8"
               >
                 <button
-                  onClick={() => window.open("https://calendly.com/your-agency/30min", "_blank")}
+                  onClick={() => window.open("https://wa.me/923273001777", "_blank")}
                   className="w-full py-4 rounded-xl bg-electric text-white font-medium text-lg electric-glow"
                 >
                   Book a Free Call →

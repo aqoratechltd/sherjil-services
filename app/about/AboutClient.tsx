@@ -6,7 +6,6 @@ import { Target, Zap, Shield, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import MagneticButton from "@/components/ui/MagneticButton";
-import CalendlyModal from "@/components/ui/CalendlyModal";
 import CTABanner from "@/components/sections/CTABanner";
 import { STATS } from "@/lib/utils";
 
@@ -47,7 +46,6 @@ const TEAM = [
 ];
 
 export default function AboutClient() {
-  const [modalOpen, setModalOpen] = useState(false);
   const storyRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: storyRef, offset: ["start end", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
@@ -233,7 +231,6 @@ export default function AboutClient() {
       </section>
 
       <CTABanner />
-      <CalendlyModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

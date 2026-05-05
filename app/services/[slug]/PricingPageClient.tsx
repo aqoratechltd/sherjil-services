@@ -9,7 +9,8 @@ import {
   Star, Code, Award, Camera, Layers, ShoppingBag, Share2, Zap,
   Brain, Server, Cloud, Network, Database, Sparkles,
 } from "lucide-react";
-import CalendlyModal from "@/components/ui/CalendlyModal";
+
+const WA_URL = "https://wa.me/923273001777";
 import CTABanner from "@/components/sections/CTABanner";
 import { type PricingService, type PricingPackage } from "@/lib/pricing-data";
 
@@ -135,7 +136,6 @@ function PricingCard({
 }
 
 export default function PricingPageClient({ service }: { service: PricingService }) {
-  const [modalOpen, setModalOpen] = useState(false);
   const Icon = ICON_MAP[service.icon] ?? Zap;
 
   return (
@@ -253,7 +253,7 @@ export default function PricingPageClient({ service }: { service: PricingService
                 pkg={pkg}
                 color={service.color}
                 index={i}
-                onQuote={() => setModalOpen(true)}
+                onQuote={() => window.open(WA_URL, "_blank")}
               />
             ))}
           </div>
@@ -272,7 +272,7 @@ export default function PricingPageClient({ service }: { service: PricingService
               </p>
             </div>
             <button
-              onClick={() => setModalOpen(true)}
+              onClick={() => window.open(WA_URL, "_blank")}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-3 bg-electric text-white text-sm font-mono uppercase tracking-widest hover:bg-electric/90 transition-colors rounded-xl"
               style={{ fontFamily: "var(--font-mono)" }}
             >
@@ -286,7 +286,6 @@ export default function PricingPageClient({ service }: { service: PricingService
       <CTABanner />
 
       {/* Single modal at page level */}
-      <CalendlyModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

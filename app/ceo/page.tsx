@@ -51,10 +51,10 @@ export default function CEOPage() {
 
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => window.dispatchEvent(new Event('open-calendly'))}
+                onClick={() => window.open("https://wa.me/923273001777", "_blank")}
                 className="bg-accent text-black font-bold px-8 py-3 rounded hover:bg-accent/90 transition-colors"
               >
-                Book a call with Kashan
+                Chat with Kashan on WhatsApp
               </button>
               <div className="flex items-center gap-2">
                 <a href="https://linkedin.com/in/kashaniqbal" className="p-3 bg-secondary rounded text-text-muted hover:text-accent hover:bg-card transition-colors"><Linkedin className="w-5 h-5"/></a>

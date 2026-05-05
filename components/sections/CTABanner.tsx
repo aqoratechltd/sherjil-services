@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
-import CalendlyModal from "@/components/ui/CalendlyModal";
+
+const WA_URL = "https://wa.me/923273001777";
 
 export default function CTABanner() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <section className="w-full relative overflow-hidden border-y border-electric/20 bg-electric/[0.06]">
       {/* Subtle background accent */}
@@ -33,7 +31,7 @@ export default function CTABanner() {
               Ready to Scale Your Business?
             </span>
             <span className="hidden sm:inline text-smoke text-sm ml-3">
-              Free 30-min strategy call — no commitment.
+              Message us on WhatsApp — no commitment.
             </span>
           </div>
         </div>
@@ -41,22 +39,20 @@ export default function CTABanner() {
         {/* Right — CTA */}
         <div className="flex items-center gap-3 shrink-0">
           <p className="text-xs text-smoke sm:hidden text-center">
-            Free 30-min call. No commitment.
+            Message us on WhatsApp. No commitment.
           </p>
           <MagneticButton
-            onClick={() => setModalOpen(true)}
+            onClick={() => window.open(WA_URL, "_blank")}
             className="group relative flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-electric text-white font-medium text-sm electric-glow overflow-hidden whitespace-nowrap"
           >
             <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative flex items-center gap-2 whitespace-nowrap">
-              Book Free Call
+              Chat on WhatsApp
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </span>
           </MagneticButton>
         </div>
       </motion.div>
-
-      <CalendlyModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

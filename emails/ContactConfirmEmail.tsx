@@ -22,12 +22,12 @@ export const ContactConfirmEmail = ({ name }: ContactConfirmEmailProps) => {
               Thank you for reaching out to Veltrix. We have received your inquiry and our team is currently reviewing it.
             </Text>
             <Text style={text}>
-              You can expect a response from one of our partners within 24 hours. If your request is urgent, feel free to book a direct strategy call using the link below:
+              You can expect a response from one of our partners within 24 hours. If your request is urgent, feel free to reach us directly on WhatsApp:
             </Text>
-            
+
             <Section style={buttonContainer}>
-              <Button style={button} href={process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/veltrix/30min'}>
-                Book a Strategy Call
+              <Button style={button} href="https://wa.me/923273001777">
+                Chat on WhatsApp
               </Button>
             </Section>
 

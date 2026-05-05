@@ -7,7 +7,8 @@ import {
   MapPin, Calendar, ArrowRight,
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
-import CalendlyModal from "@/components/ui/CalendlyModal";
+
+const WA_URL = "https://wa.me/923273001777";
 
 interface FormData {
   name: string;
@@ -60,8 +61,6 @@ export default function ContactClient() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [modalOpen, setModalOpen] = useState(false);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -142,7 +141,7 @@ export default function ContactClient() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                onClick={() => setModalOpen(true)}
+                onClick={() => window.open(WA_URL, "_blank")}
                 className="group cursor-pointer p-6 rounded-2xl glass-electric border border-electric/20 hover:border-electric/40 transition-all duration-300 mb-6"
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -232,7 +231,7 @@ export default function ContactClient() {
                       Thanks for reaching out. We&apos;ll have a tailored response in your inbox within 2 hours.
                     </p>
                     <button
-                      onClick={() => setModalOpen(true)}
+                      onClick={() => window.open(WA_URL, "_blank")}
                       className="flex items-center gap-2 px-6 py-3 rounded-xl bg-electric text-white text-sm font-medium electric-glow"
                     >
                       <Calendar className="w-4 h-4" />
@@ -393,7 +392,6 @@ export default function ContactClient() {
         </div>
       </section>
 
-      <CalendlyModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
