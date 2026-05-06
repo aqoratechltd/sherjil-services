@@ -57,7 +57,7 @@ const sections = [
   },
   {
     title: "13. Contact",
-    body: `Questions about these Terms? Reach us at hello@aqora.agency.`,
+    body: `Questions about these Terms? Reach us at aqoratech@gmail.com.`,
   },
 ];
 

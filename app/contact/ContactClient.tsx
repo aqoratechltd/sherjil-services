@@ -170,11 +170,11 @@ export default function ContactClient() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "hello@aqora.agency",
-                    href: "mailto:hello@aqora.agency",
+                    value: "aqoratech@gmail.com",
+                    href: "mailto:aqoratech@gmail.com",
                   },
-                  { icon: Phone, label: "WhatsApp", value: "+1 (555) 000-1234", href: "https://wa.me/15550001234" },
-                  { icon: MapPin, label: "Location", value: "New York, NY", href: "#" },
+                  { icon: Phone, label: "WhatsApp", value: "+92 327 300 1777", href: "https://wa.me/923273001777" },
+                  { icon: MapPin, label: "Location", value: "Vogue Towers, MM Alam Rd, Gulberg III, Lahore", href: "https://maps.google.com/?q=Vogue+Towers,MM+Alam+Road,Gulberg+III,Lahore,Pakistan" },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <a
                     key={label}

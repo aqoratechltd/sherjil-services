@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "1. Who We Are",
-    body: `Aqora ("we", "us", "our") is a software and digital-marketing agency. Our registered office and primary point of contact is hello@aqora.agency. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website or engage our services.`,
+    body: `Aqora ("we", "us", "our") is a software and digital-marketing agency. Our registered office and primary point of contact is aqoratech@gmail.com. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website or engage our services.`,
   },
   {
     title: "2. Information We Collect",
@@ -41,7 +41,7 @@ const sections = [
   },
   {
     title: "9. Your Rights",
-    body: `Depending on your jurisdiction, you may have the right to:\n\n• Access the personal data we hold about you\n• Correct inaccurate or incomplete data\n• Request erasure of your data ("right to be forgotten")\n• Restrict or object to our processing\n• Request portability of your data\n• Withdraw consent at any time (where processing is based on consent)\n\nTo exercise any of these rights, contact us at hello@aqora.agency. We will respond within 30 days.`,
+    body: `Depending on your jurisdiction, you may have the right to:\n\n• Access the personal data we hold about you\n• Correct inaccurate or incomplete data\n• Request erasure of your data ("right to be forgotten")\n• Restrict or object to our processing\n• Request portability of your data\n• Withdraw consent at any time (where processing is based on consent)\n\nTo exercise any of these rights, contact us at aqoratech@gmail.com. We will respond within 30 days.`,
   },
   {
     title: "10. International Transfers",
@@ -53,7 +53,7 @@ const sections = [
   },
   {
     title: "12. Contact Us",
-    body: `If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:\n\nEmail: hello@aqora.agency\nSubject line: Privacy Request`,
+    body: `If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:\n\nEmail: aqoratech@gmail.com\nSubject line: Privacy Request`,
   },
 ];
 

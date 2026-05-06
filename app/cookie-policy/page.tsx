@@ -37,7 +37,7 @@ const sections = [
   },
   {
     title: "8. Contact Us",
-    body: `If you have questions about how we use cookies, contact us at hello@aqora.agency.`,
+    body: `If you have questions about how we use cookies, contact us at aqoratech@gmail.com.`,
   },
 ];
 
