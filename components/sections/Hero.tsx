@@ -1,18 +1,20 @@
 "use client";
 
-import { useRef, useState } from "react";
-
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ChevronDown, Play } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { WA_URL } from "@/lib/utils";
 
-const WA_URL = "https://wa.me/923273001777";
-
-const HERO_WORDS = ["Software", "Systems", "Futures"];
+const CATEGORIES = [
+  { label: "US Immigration & Travel", color: "#0066FF" },
+  { label: "Pakistan Documents", color: "#10B981" },
+  { label: "Financial Services", color: "#F59E0B" },
+  { label: "Career Services", color: "#EC4899" },
+];
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  const [wordIndex, setWordIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -32,8 +34,6 @@ export default function Hero() {
         style={{ y: bgY, scale }}
         className="absolute inset-0 bg-hero-gradient"
       />
-
-      {/* Grid pattern */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "15%"]) }}
         className="absolute inset-0 grid-bg opacity-100"
@@ -41,21 +41,14 @@ export default function Hero() {
 
       {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(800px,100vw)] h-[min(800px,100vw)] rounded-full bg-electric/5 blur-[120px] pointer-events-none" />
-
-      {/* Electric orb */}
       <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.15, 0.25, 0.15],
-        }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full bg-electric/10 blur-[80px] pointer-events-none"
       />
 
       {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-24 md:pt-16 lg:pt-0"
-      >
+      <motion.div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-24 md:pt-16 lg:pt-0">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,8 +58,8 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-mono)" }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse shrink-0" />
-          <span>Now onboarding new clients for April 2026</span>
-          <span className="text-mist hidden sm:inline">— Limited spots available</span>
+          <span>Now accepting new clients</span>
+          <span className="text-mist hidden sm:inline">— Book your service today</span>
         </motion.div>
 
         {/* Main heading */}
@@ -78,10 +71,10 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="block text-[clamp(2.25rem,7vw,5rem)] text-ghost">
-            We Grow Bold <span className="text-gradient-electric">Brands</span>
+            Your Trusted <span className="text-gradient-electric">Partner</span>
           </span>
           <span className="block text-[clamp(2.25rem,7vw,5rem)] text-ghost">
-            Online.
+            for Every Service.
           </span>
         </motion.h1>
 
@@ -92,8 +85,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-base md:text-xl text-mist max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 sm:px-0"
         >
-          From branding to growth —{" "}
-          <span className="text-ghost font-medium">AQORA TECH</span> builds, manages, and scales your business with 360° digital solutions.
+          From U.S. immigration to Pakistani documents, financial setup, and career growth —{" "}
+          <span className="text-ghost font-medium">Sherjil Services</span> handles it all with expertise and care.
         </motion.p>
 
         {/* CTA buttons */}
@@ -108,38 +101,37 @@ export default function Hero() {
             className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-electric text-white font-medium text-base electric-glow overflow-hidden w-full sm:w-auto whitespace-nowrap"
           >
             <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <span className="relative">Book a Strategy Call</span>
+            <span className="relative">Book a Service</span>
           </MagneticButton>
 
-          <MagneticButton className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-obsidian border border-white/[0.08] text-ghost text-base font-medium hover:border-electric/30 transition-all duration-200 w-full sm:w-auto whitespace-nowrap">
-            See Our Work
+          <MagneticButton
+            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-obsidian border border-white/[0.08] text-ghost text-base font-medium hover:border-electric/30 transition-all duration-200 w-full sm:w-auto whitespace-nowrap"
+          >
+            Browse Services
           </MagneticButton>
         </motion.div>
 
-        {/* Stats */}
+        {/* Category pills */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
-          className="flex flex-wrap items-center justify-center gap-6 md:gap-8 mt-10 md:mt-16"
+          className="flex flex-wrap items-center justify-center gap-3 mt-10 md:mt-16"
         >
-          {[
-            { value: "150+", label: "Campaigns Delivered" },
-            { value: "95%", label: "Client Retention Rate" },
-            { value: "3x–10x", label: "Average ROAS" },
-            { value: "$50M+", label: "Revenue Generated" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <p
-                className="text-3xl md:text-4xl font-display font-bold text-gradient-electric"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {stat.value}
-              </p>
-              <p className="text-xs text-smoke mt-1 font-mono" style={{ fontFamily: "var(--font-mono)" }}>
-                {stat.label}
-              </p>
-            </div>
+          {CATEGORIES.map((cat, i) => (
+            <span
+              key={i}
+              className="px-4 py-2 rounded-full text-xs font-mono font-medium border"
+              style={{
+                color: cat.color,
+                borderColor: `${cat.color}30`,
+                backgroundColor: `${cat.color}10`,
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              {cat.label}
+            </span>
           ))}
         </motion.div>
       </motion.div>
@@ -164,7 +156,6 @@ export default function Hero() {
           Scroll
         </span>
       </motion.div>
-
     </section>
   );
 }

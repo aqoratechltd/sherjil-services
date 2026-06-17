@@ -2,83 +2,80 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Menu, X, ChevronDown, Zap, Sun, Moon,
-  Palette, Video, Search, TrendingUp, Globe, Share2, Film,
-  Star, Code, Award, Camera, Layers, ShoppingBag, Package,
-  Brain, Server, Cloud, Network, Database, Sparkles,
-  ShoppingCart, ArrowRight,
+  Menu, X, ChevronDown, Sun, Moon,
+  Globe, FileText, ShieldCheck, Award, BadgeCheck, Clipboard, CreditCard,
+  Users, Building2, ArrowLeftRight, TrendingUp, BarChart2,
+  Sparkles, Briefcase, ArrowRight, Plane, Map, BedDouble,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, WA_URL } from "@/lib/utils";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { useTheme } from "@/components/ui/ThemeProvider";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Travel", href: "/travel" },
   { label: "About", href: "/about" },
-  { label: "Why Us", href: "/why-us" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Contact", href: "/contact" },
 ];
 
 const MENU_SECTIONS = [
   {
-    heading: "Core Services",
+    heading: "US Immigration & Travel",
     color: "#0066FF",
-    Icon: Zap,
+    Icon: Globe,
     items: [
-      { label: "Ecommerce Solutions",       href: "/services/ecommerce",            tag: "Hot",  Icon: ShoppingCart },
-      { label: "Social Media Marketing",     href: "/services/smm",                             Icon: Share2      },
-      { label: "SEO",                        href: "/services/seo",                             Icon: Search      },
-      { label: "Web & App Development",      href: "/services/development",                     Icon: Code        },
-      { label: "Performance Marketing",      href: "/services/performance-marketing", tag: "Ads", Icon: TrendingUp  },
-      { label: "Lead Generation",            href: "/services/lead-generation",                 Icon: Globe       },
-      { label: "Branding",                   href: "/services/branding",                        Icon: Award       },
+      { label: "Passport Application / Renewal", href: "/services/us-passport",           tag: "$50",  Icon: Globe       },
+      { label: "I-130 Visa Petition",             href: "/services/i130-visa",                         Icon: FileText    },
+      { label: "Sponsor Form Completion",          href: "/services/sponsor-form",                      Icon: Clipboard   },
+      { label: "Green Card Renewal",               href: "/services/green-card-renewal",                Icon: CreditCard  },
+      { label: "Green Card Fee Waiver",            href: "/services/green-card-waiver",                 Icon: ShieldCheck },
+      { label: "Citizenship Application",          href: "/services/citizenship-application",           Icon: Award       },
+      { label: "Citizenship Fee Waiver",           href: "/services/citizenship-waiver",                Icon: BadgeCheck  },
     ],
   },
   {
-    heading: "Creative & Design",
-    color: "#EC4899",
-    Icon: Palette,
+    heading: "Pakistan Documents",
+    color: "#10B981",
+    Icon: Users,
     items: [
-      { label: "Graphic Design",       href: "/services/graphic-design",       Icon: Palette },
-      { label: "Video Editing",         href: "/services/video-editing",         Icon: Video   },
-      { label: "Video Production",      href: "/services/video-production",      Icon: Film    },
-      { label: "Influencer Content",    href: "/services/influencer-content",    Icon: Star    },
-      { label: "Content Creation",      href: "/services/content-creation",      Icon: Camera  },
-      { label: "Brand Identity",        href: "/services/brand-identity",        Icon: Award   },
+      { label: "Pakistani Passport",               href: "/services/pk-passport",        tag: "$50",   Icon: FileText    },
+      { label: "NICOP Application or Renewal",     href: "/services/nicop",              tag: "$50",   Icon: CreditCard  },
+      { label: "Power of Attorney",                href: "/services/power-of-attorney",  tag: "Quote", Icon: ShieldCheck },
+      { label: "Nadra Card & Documents",           href: "/services/nadra-services",     tag: "Quote", Icon: Users       },
     ],
   },
   {
-    heading: "Marketing & Growth",
-    color: "#06B6D4",
+    heading: "Financial Services",
+    color: "#F59E0B",
     Icon: TrendingUp,
     items: [
-      { label: "Digital Marketing",    href: "/services/digital-marketing",        Icon: Globe       },
-      { label: "Social Media",          href: "/services/social-media-marketing",   Icon: Share2      },
-      { label: "Performance Ads",       href: "/services/performance-ads",          Icon: TrendingUp  },
-      { label: "SEO Packages",          href: "/services/seo-packages",             Icon: Search      },
-      { label: "Advanced Marketing",    href: "/services/marketing-advanced",       Icon: Layers      },
-      { label: "E-Commerce Support",    href: "/services/ecommerce-support",        Icon: ShoppingBag },
-      { label: "Courier Management",    href: "/services/courier-management",       Icon: Package     },
+      { label: "Digital Account Opening",          href: "/services/digital-account",    tag: "$75",  Icon: Building2       },
+      { label: "Money Transfer Setup",             href: "/services/money-transfer",     tag: "$25",  Icon: ArrowLeftRight  },
+      { label: "Stock Market + Basic Training",    href: "/services/stock-basic",        tag: "$100", Icon: TrendingUp      },
+      { label: "Stock Market + Premium Training",  href: "/services/stock-premium",      tag: "$200", Icon: BarChart2       },
     ],
   },
   {
-    heading: "Technology & AI",
-    color: "#7C3AED",
-    Icon: Brain,
+    heading: "Career Services",
+    color: "#EC4899",
+    Icon: Briefcase,
     items: [
-      { label: "SaaS Development",     href: "/services/saas-development",   Icon: Layers,    tag: "New" },
-      { label: "AI Integrations",       href: "/services/ai-integrations",    Icon: Brain,     tag: "AI"  },
-      { label: "Generative AI",         href: "/services/generative-ai",      Icon: Sparkles,  tag: "AI"  },
-      { label: "Website Development",   href: "/services/web-dev",            Icon: Code               },
-      { label: "Blockchain Dev",         href: "/services/blockchain-dev",     Icon: Network            },
-      { label: "Blockchain & Crypto",   href: "/services/blockchain-crypto",  Icon: Database           },
-      { label: "Infrastructure",         href: "/services/infrastructure",     Icon: Server             },
-      { label: "Cloud Architecture",    href: "/services/cloud-design",       Icon: Cloud              },
+      { label: "Resume Writing (Normal)",          href: "/services/resume-normal",      tag: "$50",  Icon: FileText   },
+      { label: "Professional Resume Writing",      href: "/services/resume-professional",tag: "$100", Icon: Sparkles   },
+      { label: "Job Hunt Support",                 href: "/services/job-hunt",           tag: "$500", Icon: Briefcase  },
+    ],
+  },
+  {
+    heading: "Travel Services",
+    color: "#8B5CF6",
+    Icon: Plane,
+    items: [
+      { label: "Travel Visa (e-Visa)",             href: "/travel#travel-visa",          tag: "$50",  Icon: Plane     },
+      { label: "Trip Planning",                    href: "/travel#trip-planning",        tag: "$125", Icon: Map       },
+      { label: "Hotel Booking Service",            href: "/travel#hotel-booking",        tag: "$15",  Icon: BedDouble },
     ],
   },
 ];
@@ -112,27 +109,18 @@ export default function Navbar() {
           scrolled ? "py-3 bg-obsidian" : "py-6 bg-transparent"
         )}
       >
-        {/* Inner container — relative so mega menu positions against it */}
         <div
           className="max-w-7xl mx-auto px-6 lg:px-8 relative"
           onMouseLeave={() => setDropdownOpen(false)}
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="group flex items-center gap-2.5">
-              <Image
-                src="/logo2.png"
-                alt="Aqora"
-                width={44}
-                height={44}
-                className="w-9 h-9 rounded-xl object-cover group-hover:opacity-90 transition-opacity duration-300"
-                priority
-              />
+            <Link href="/" className="group flex items-center">
               <span
-                className="font-display font-bold text-lg text-ghost tracking-tight group-hover:opacity-90 transition-opacity duration-300"
+                className="font-display font-bold text-xl text-ghost tracking-tight group-hover:opacity-90 transition-opacity duration-300"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Aqora Tech
+                Sherjil Services
               </span>
             </Link>
 
@@ -183,9 +171,9 @@ export default function Navbar() {
 
               <MagneticButton
                 className="px-5 py-2 rounded-xl bg-electric hover:bg-electric-dim text-white text-sm font-medium transition-colors duration-200 electric-glow"
-                onClick={() => window.open("https://wa.me/923273001777", "_blank")}
+                onClick={() => window.open(WA_URL, "_blank")}
               >
-                Book a Free Call
+                Book Now
               </MagneticButton>
             </div>
 
@@ -207,7 +195,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* ── Mega Menu ── */}
+          {/* Mega Menu */}
           <AnimatePresence>
             {dropdownOpen && (
               <motion.div
@@ -218,13 +206,11 @@ export default function Navbar() {
                 onMouseEnter={() => setDropdownOpen(true)}
                 className="absolute top-full left-0 right-0 mt-3 bg-obsidian border border-white/[0.08] rounded-2xl shadow-2xl overflow-hidden"
               >
-                {/* Top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent" />
 
-                <div className="grid grid-cols-4 divide-x divide-white/[0.05]">
+                <div className="grid grid-cols-5 divide-x divide-white/[0.05]">
                   {MENU_SECTIONS.map((section) => (
                     <div key={section.heading} className="p-5">
-                      {/* Section heading */}
                       <div className="flex items-center gap-2 mb-4">
                         <div
                           className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -240,10 +226,9 @@ export default function Navbar() {
                         </span>
                       </div>
 
-                      {/* Items */}
                       <ul className="space-y-0.5">
                         {section.items.map((item) => (
-                          <li key={item.href}>
+                          <li key={item.label}>
                             <Link
                               href={item.href}
                               className="group flex items-center justify-between gap-2 px-2.5 py-2 rounded-lg text-sm text-mist hover:text-ghost hover:bg-white/[0.05] transition-all duration-150"
@@ -276,10 +261,9 @@ export default function Navbar() {
                   ))}
                 </div>
 
-                {/* Footer bar */}
                 <div className="border-t border-white/[0.05] px-5 py-3 flex items-center justify-between bg-white/[0.01]">
                   <p className="text-xs text-smoke">
-                    22 services across 4 categories
+                    21+ services across 5 categories
                   </p>
                   <Link
                     href="/services"
@@ -325,7 +309,6 @@ export default function Navbar() {
                   </motion.div>
                 ))}
 
-                {/* Mobile service categories */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -342,7 +325,7 @@ export default function Navbar() {
                       </p>
                       {section.items.slice(0, 4).map((item) => (
                         <Link
-                          key={item.href}
+                          key={item.label}
                           href={item.href}
                           className="block py-1.5 px-1 text-sm text-smoke hover:text-ghost transition-colors"
                         >
@@ -361,10 +344,10 @@ export default function Navbar() {
                 className="mt-8"
               >
                 <button
-                  onClick={() => window.open("https://wa.me/923273001777", "_blank")}
+                  onClick={() => window.open(WA_URL, "_blank")}
                   className="w-full py-4 rounded-xl bg-electric text-white font-medium text-lg electric-glow"
                 >
-                  Book a Free Call →
+                  Book Now →
                 </button>
               </motion.div>
             </div>

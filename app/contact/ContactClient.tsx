@@ -4,16 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Send, CheckCircle2, AlertCircle, Mail, Phone,
-  MapPin, Calendar, ArrowRight,
+  Calendar, ArrowRight,
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
-
-const WA_URL = "https://wa.me/923273001777";
+import { WA_URL, CONTACT_PHONE, CONTACT_EMAIL } from "@/lib/utils";
 
 interface FormData {
   name: string;
   email: string;
-  businessName: string;
   phone: string;
   service: string;
   message: string;
@@ -26,14 +24,29 @@ interface FormErrors {
 }
 
 const SERVICES_LIST = [
-  "Ecommerce Solutions",
-  "Social Media Marketing",
-  "SEO",
-  "Web & App Development",
-  "Performance Marketing",
-  "Lead Generation",
-  "Branding",
-  "Other",
+  // Immigration
+  "U.S. Passport Application or Renewal",
+  "I-130 Visa Petition Assistance",
+  "Sponsor Form Completion",
+  "Green Card Renewal Assistance",
+  "Green Card Fee Waiver Assistance",
+  "Citizenship Application Assistance",
+  "Citizenship Fee Waiver Assistance",
+  // Pakistan Docs
+  "Pakistani Passport Application or Renewal",
+  "NICOP Application or Renewal",
+  "Power of Attorney (POA)",
+  "Nadra Card & Document Services",
+  // Financial
+  "Pakistan Digital Account Opening",
+  "Money Transfer Setup",
+  "Stock Market Account + Basic Training",
+  "Stock Market Account + Premium Training",
+  // Career
+  "Resume Writing (Normal)",
+  "Professional Resume Writing",
+  "Job Hunt Support",
+  "Other / General Inquiry",
 ];
 
 function validateForm(data: FormData): FormErrors {
@@ -44,9 +57,9 @@ function validateForm(data: FormData): FormErrors {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.email = "Please enter a valid email";
   }
-  if (!data.message.trim()) errors.message = "Tell us about your project";
-  else if (data.message.trim().length < 30)
-    errors.message = "Please provide a bit more detail (min 30 chars)";
+  if (!data.message.trim()) errors.message = "Please describe what you need";
+  else if (data.message.trim().length < 20)
+    errors.message = "Please provide a bit more detail (min 20 chars)";
   return errors;
 }
 
@@ -54,13 +67,13 @@ export default function ContactClient() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    businessName: "",
     phone: "",
     service: "",
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -78,9 +91,7 @@ export default function ContactClient() {
       setErrors(newErrors);
       return;
     }
-
     setStatus("loading");
-    // Simulate API call
     await new Promise((r) => setTimeout(r, 1500));
     setStatus("success");
   };
@@ -114,9 +125,9 @@ export default function ContactClient() {
             className="text-5xl md:text-7xl font-display font-extrabold text-ghost leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Let&apos;s Build Something
+            Let&apos;s Get Your
             <br />
-            <span className="text-gradient-electric">Great Together.</span>
+            <span className="text-gradient-electric">Service Started.</span>
           </motion.h1>
 
           <motion.p
@@ -125,7 +136,7 @@ export default function ContactClient() {
             transition={{ delay: 0.2 }}
             className="text-xl text-mist max-w-xl leading-relaxed"
           >
-            Whether you&apos;re starting from scratch or ready to scale, we&apos;re here to help. Reach out and let&apos;s talk about your goals.
+            Tell us what you need and we&apos;ll get back to you quickly. You can also reach us directly by phone or WhatsApp.
           </motion.p>
         </div>
       </section>
@@ -134,9 +145,9 @@ export default function ContactClient() {
       <section className="pb-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
-            {/* Left — Contact info + quick book */}
+            {/* Left — Contact info */}
             <div>
-              {/* Quick book */}
+              {/* WhatsApp quick contact */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -148,13 +159,13 @@ export default function ContactClient() {
                   <div className="w-9 h-9 rounded-lg bg-electric/15 border border-electric/25 flex items-center justify-center">
                     <Calendar className="w-4 h-4 text-electric" />
                   </div>
-                  <p className="font-medium text-ghost">Prefer a call?</p>
+                  <p className="font-medium text-ghost">Prefer WhatsApp?</p>
                 </div>
                 <p className="text-sm text-mist mb-4 leading-relaxed">
-                  Book a free 30-minute strategy call and let&apos;s discuss your project live.
+                  Message us directly on WhatsApp for a fast response — usually within a few hours.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-electric group-hover:gap-3 transition-all">
-                  Book Now
+                  Chat Now
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </motion.div>
@@ -168,13 +179,17 @@ export default function ContactClient() {
               >
                 {[
                   {
+                    icon: Phone,
+                    label: "Phone / WhatsApp",
+                    value: CONTACT_PHONE,
+                    href: WA_URL,
+                  },
+                  {
                     icon: Mail,
                     label: "Email",
-                    value: "aqoratech@gmail.com",
-                    href: "mailto:aqoratech@gmail.com",
+                    value: CONTACT_EMAIL,
+                    href: `mailto:${CONTACT_EMAIL}`,
                   },
-                  { icon: Phone, label: "WhatsApp", value: "+92 327 300 1777", href: "https://wa.me/923273001777" },
-                  { icon: MapPin, label: "Location", value: "Vogue Towers, MM Alam Rd, Gulberg III, Lahore", href: "https://maps.google.com/?q=Vogue+Towers,MM+Alam+Road,Gulberg+III,Lahore,Pakistan" },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <a
                     key={label}
@@ -202,8 +217,8 @@ export default function ContactClient() {
                 <p className="text-xs font-mono text-electric uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-mono)" }}>
                   Response Time
                 </p>
-                <p className="text-ghost font-medium">Under 2 hours</p>
-                <p className="text-xs text-smoke mt-0.5">Mon–Fri, 9AM–6PM PST</p>
+                <p className="text-ghost font-medium">Within a few hours</p>
+                <p className="text-xs text-smoke mt-0.5">7 days a week</p>
               </motion.div>
             </div>
 
@@ -228,14 +243,14 @@ export default function ContactClient() {
                       Message Sent!
                     </h3>
                     <p className="text-mist max-w-xs leading-relaxed mb-8">
-                      Thanks for reaching out. We&apos;ll have a tailored response in your inbox within 2 hours.
+                      Thanks for reaching out. We&apos;ll be in touch soon. You can also WhatsApp us for a faster response.
                     </p>
                     <button
                       onClick={() => window.open(WA_URL, "_blank")}
                       className="flex items-center gap-2 px-6 py-3 rounded-xl bg-electric text-white text-sm font-medium electric-glow"
                     >
                       <Calendar className="w-4 h-4" />
-                      Or Book a Call Now
+                      Chat on WhatsApp
                     </button>
                   </motion.div>
                 ) : (
@@ -253,11 +268,10 @@ export default function ContactClient() {
                         <input
                           name="name"
                           type="text"
-                          placeholder="Jordan Smith"
+                          placeholder="Your name"
                           value={formData.name}
                           onChange={handleChange}
                           className={inputClass}
-                          style={{ fontFamily: "var(--font-body)" }}
                         />
                         {errors.name && (
                           <p className="flex items-center gap-1 mt-1.5 text-xs text-red-400">
@@ -268,45 +282,7 @@ export default function ContactClient() {
                       </div>
                       <div>
                         <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Business Name
-                        </label>
-                        <input
-                          name="businessName"
-                          type="text"
-                          placeholder="Acme Corp"
-                          value={formData.businessName}
-                          onChange={handleChange}
-                          className={inputClass}
-                          style={{ fontFamily: "var(--font-body)" }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Email Address
-                        </label>
-                        <input
-                          name="email"
-                          type="email"
-                          placeholder="you@company.com"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className={inputClass}
-                          style={{ fontFamily: "var(--font-body)" }}
-                        />
-                        {errors.email && (
-                          <p className="flex items-center gap-1 mt-1.5 text-xs text-red-400">
-                            <AlertCircle className="w-3 h-3" />
-                            {errors.email}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                          Phone Number
+                          Phone / WhatsApp
                         </label>
                         <input
                           name="phone"
@@ -315,22 +291,41 @@ export default function ContactClient() {
                           value={formData.phone}
                           onChange={handleChange}
                           className={inputClass}
-                          style={{ fontFamily: "var(--font-body)" }}
                         />
                       </div>
+                    </div>
+
+                    {/* Email */}
+                    <div>
+                      <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
+                        Email Address
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        placeholder="you@email.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={inputClass}
+                      />
+                      {errors.email && (
+                        <p className="flex items-center gap-1 mt-1.5 text-xs text-red-400">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     {/* Service */}
                     <div>
                       <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                        Service Interested In
+                        Service You Need
                       </label>
                       <select
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
                         className={inputClass}
-                        style={{ fontFamily: "var(--font-body)" }}
                       >
                         <option value="" className="bg-graphite">Select a service</option>
                         {SERVICES_LIST.map((s) => (
@@ -344,16 +339,15 @@ export default function ContactClient() {
                     {/* Message */}
                     <div>
                       <label className={labelClass} style={{ fontFamily: "var(--font-mono)" }}>
-                        Tell us about your project
+                        Tell us about your situation
                       </label>
                       <textarea
                         name="message"
                         rows={5}
-                        placeholder="What are your goals?"
+                        placeholder="Describe what you need help with..."
                         value={formData.message}
                         onChange={handleChange}
                         className={`${inputClass} resize-none`}
-                        style={{ fontFamily: "var(--font-body)" }}
                       />
                       {errors.message && (
                         <p className="flex items-center gap-1 mt-1.5 text-xs text-red-400">
@@ -375,14 +369,12 @@ export default function ContactClient() {
                           <span className="relative">Sending...</span>
                         </>
                       ) : (
-                        <>
-                          <span className="relative">Send Message</span>
-                        </>
+                        <span className="relative">Send Message</span>
                       )}
                     </MagneticButton>
 
                     <p className="text-center text-xs text-smoke">
-                      We typically respond within 2 hours. No spam, ever.
+                      We respond promptly. No spam, ever.
                     </p>
                   </motion.form>
                 )}
@@ -391,7 +383,6 @@ export default function ContactClient() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

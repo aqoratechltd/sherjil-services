@@ -9,23 +9,26 @@ import MotionProvider from "@/components/ui/MotionProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Aqora — Digital Marketing Agency",
-    template: "%s | Aqora",
+    default: "Sherjil Services — Immigration, Documents, Financial & Career",
+    template: "%s | Sherjil Services",
   },
   description:
-    "We Grow Bold Brands Online. From ecommerce stores to global enterprises — we strategize, execute, and scale digital marketing that delivers real, measurable results.",
+    "Sherjil Services helps you navigate U.S. immigration, Pakistani documents, financial account setup, and career services — all in one place. Book now.",
   keywords: [
-    "digital marketing",
-    "ecommerce solutions",
-    "SEO",
-    "performance marketing",
-    "lead generation",
-    "branding",
+    "US immigration assistance",
+    "Pakistan documents",
+    "NICOP",
+    "Nadra",
+    "green card renewal",
+    "citizenship application",
+    "resume writing",
+    "stock market training",
+    "money transfer setup",
   ],
   openGraph: {
     type: "website",
-    title: "Aqora — Digital Marketing Agency",
-    description: "We Grow Bold Brands Online. Strategy, execution, and real results.",
+    title: "Sherjil Services — Immigration, Documents, Financial & Career",
+    description: "Professional assistance for immigration, Pakistani documents, financial services, and career support.",
   },
 };
 
@@ -39,11 +42,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo2.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo2.png" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6177021193345099"
-          crossOrigin="anonymous"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -54,24 +52,13 @@ export default function RootLayout({
       <body className="bg-void text-ghost antialiased">
         <MotionProvider>
         <ThemeProvider>
-          {/* Animated noise overlay — cinematic grain */}
           <div className="noise-overlay" aria-hidden="true" />
-
-          {/* Custom cursor */}
           <CustomCursor />
-
-          {/* Navbar */}
           <Navbar />
-
-          {/* Page content */}
           <main className="page-transition">
             {children}
           </main>
-
-          {/* Footer */}
           <Footer />
-
-          {/* Floating booking CTA */}
           <FloatingCTA />
         </ThemeProvider>
         </MotionProvider>

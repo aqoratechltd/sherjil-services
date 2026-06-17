@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-
-const WA_URL = "https://wa.me/923273001777";
+import { WA_URL } from "@/lib/utils";
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);

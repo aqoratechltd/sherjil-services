@@ -15,7 +15,7 @@ export default function ServicesHero() {
           className="text-xs font-mono text-electric uppercase tracking-widest mb-6"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          Our Capabilities
+          What We Offer
         </motion.p>
 
         <motion.h1
@@ -25,9 +25,9 @@ export default function ServicesHero() {
           className="text-5xl md:text-7xl font-display font-extrabold text-ghost leading-tight mb-6"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          15 Disciplines.
+          4 Categories.
           <br />
-          <span className="text-gradient-electric">One Standard of Excellence.</span>
+          <span className="text-gradient-electric">15 Services. One Team.</span>
         </motion.h1>
 
         <motion.p
@@ -36,7 +36,7 @@ export default function ServicesHero() {
           transition={{ delay: 0.2 }}
           className="text-xl text-mist max-w-2xl leading-relaxed"
         >
-          From generative AI to blockchain protocols, we cover the full spectrum of modern software engineering — at a level most agencies can&apos;t match.
+          From navigating U.S. immigration paperwork to opening a Pakistani bank account remotely — we handle the complexity so you don&apos;t have to.
         </motion.p>
       </div>
     </section>

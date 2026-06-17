@@ -1,48 +1,37 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Target, Zap, Shield, Globe } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import MagneticButton from "@/components/ui/MagneticButton";
 import CTABanner from "@/components/sections/CTABanner";
 import { STATS } from "@/lib/utils";
 
 const VALUES = [
   {
     icon: Target,
-    title: "Results First",
+    title: "Client-First Approach",
     description:
-      "Every campaign, every strategy, every decision is measured against one question: does it grow your business?",
+      "Every service we provide is designed around one goal: making your process as smooth, fast, and stress-free as possible.",
   },
   {
     icon: Zap,
-    title: "Radical Transparency",
+    title: "Speed & Accuracy",
     description:
-      "No smoke and mirrors. You'll always know exactly what we're doing, why we're doing it, and what it's delivering.",
+      "We move fast without cutting corners. Every form, every document, every application is handled with precision.",
   },
   {
     icon: Shield,
-    title: "Strategic Thinking",
+    title: "Trusted Guidance",
     description:
-      "We don't execute blindly. We diagnose your business, identify your biggest opportunities, and build strategies that fit your goals.",
+      "We don't guess. We know the processes inside and out — and we walk you through every step with confidence.",
   },
   {
     icon: Globe,
-    title: "Long-Term Partnership",
+    title: "Remote-Ready",
     description:
-      "We don't chase quick wins. We build sustainable growth systems that compound over time.",
+      "Whether you're in the U.S. or abroad, we handle everything remotely so you never need to be physically present.",
   },
-];
-
-const TEAM = [
-  { name: "Alex Reeves", role: "CTO & Co-Founder", specialty: "Systems Architecture" },
-  { name: "Yuna Park", role: "Head of AI", specialty: "Machine Learning & LLMs" },
-  { name: "Marcus T.", role: "Lead Engineer", specialty: "Full-Stack & DevOps" },
-  { name: "Sofia Rios", role: "Head of Design", specialty: "UX Systems & Motion" },
-  { name: "Kai Nakamura", role: "Blockchain Lead", specialty: "Web3 & DeFi" },
-  { name: "Priya D.", role: "Engineering Manager", specialty: "Team Leadership" },
 ];
 
 export default function AboutClient() {
@@ -74,9 +63,9 @@ export default function AboutClient() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-ghost leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built for Brands
+            Here to Make
             <br />
-            <span className="text-gradient-electric">That Mean Business.</span>
+            <span className="text-gradient-electric">Complex Things Simple.</span>
           </motion.h1>
 
           <motion.p
@@ -85,7 +74,7 @@ export default function AboutClient() {
             transition={{ delay: 0.25 }}
             className="text-base sm:text-lg md:text-xl text-mist max-w-2xl leading-relaxed"
           >
-            Aqora is a results-driven digital marketing agency helping businesses grow online through bold strategy, creative execution, and data-backed decisions. We don&apos;t believe in vanity metrics — we care about revenue, leads, and real growth.
+            Sherjil Services is a professional service platform helping individuals and families navigate U.S. immigration, Pakistani government documentation, financial account setup, and career development — all from a single trusted source.
           </motion.p>
         </div>
       </section>
@@ -122,26 +111,23 @@ export default function AboutClient() {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
             {/* Visual */}
             <motion.div style={{ y: imageY }} className="relative order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-                <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop&q=80"
-                  alt="Aqora agency office"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-graphite border border-white/[0.06] flex items-center justify-center">
+                <div className="text-center p-10">
+                  <p className="text-6xl font-display font-extrabold text-gradient-electric mb-4" style={{ fontFamily: "var(--font-display)" }}>
+                    4
+                  </p>
+                  <p className="text-ghost font-bold text-xl mb-2">Service Categories</p>
+                  <p className="text-smoke text-sm">Immigration · Documents · Financial · Career</p>
+                </div>
               </div>
 
-              {/* Floating stat card — hidden on mobile to avoid overflow */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="hidden sm:block absolute -top-5 -right-5 lg:-top-6 lg:-right-6 bg-obsidian border border-electric/20 rounded-2xl p-4"
               >
                 <p className="text-2xl font-display font-bold text-gradient-electric" style={{ fontFamily: "var(--font-display)" }}>
-                  50+
+                  500+
                 </p>
                 <p className="text-xs text-smoke">Happy Clients</p>
               </motion.div>
@@ -167,17 +153,32 @@ export default function AboutClient() {
                 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-ghost mb-6 leading-tight"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Aqora was founded with one mission: to give businesses access to the kind of marketing that actually works.
+                Built to bridge the gap between people and the services they need most.
               </motion.h2>
 
               <div className="space-y-4 text-mist leading-relaxed">
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
-                  We saw too many brands getting burned by agencies promising the world and delivering nothing. So we built something different — a team of specialists obsessed with outcomes, not outputs.
+                  Too many people struggle with confusing government forms, impossible-to-navigate immigration systems, and unreliable service providers. Sherjil Services was founded to change that.
                 </motion.p>
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                  Today, we partner with ecommerce brands, startups, and established businesses across industries to help them grow faster, smarter, and more profitably online.
+                  We bring together expertise across U.S. immigration, Pakistani administrative documentation, financial account setup, and career services — delivered remotely, reliably, and affordably.
                 </motion.p>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-8"
+              >
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-electric text-white text-sm font-medium electric-glow"
+                >
+                  Browse All Services →
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -203,7 +204,7 @@ export default function AboutClient() {
               className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-ghost"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              What We Believe
+              How We Work
             </motion.h2>
           </div>
 

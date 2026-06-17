@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
-
-const WA_URL = "https://wa.me/923273001777";
+import { WA_URL } from "@/lib/utils";
 
 export default function CTABanner() {
   return (
     <section className="w-full relative overflow-hidden border-y border-electric/20 bg-electric/[0.06]">
-      {/* Subtle background accent */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-electric" />
 
@@ -20,7 +18,6 @@ export default function CTABanner() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="relative max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
       >
-        {/* Left — headline */}
         <div className="flex items-center gap-3">
           <Sparkles className="w-4 h-4 text-electric shrink-0" />
           <div>
@@ -28,18 +25,17 @@ export default function CTABanner() {
               className="font-display font-bold text-ghost text-base sm:text-lg leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Scale Your Business?
+              Ready to Get Started?
             </span>
             <span className="hidden sm:inline text-smoke text-sm ml-3">
-              Message us on WhatsApp — no commitment.
+              Message us on WhatsApp — quick response guaranteed.
             </span>
           </div>
         </div>
 
-        {/* Right — CTA */}
         <div className="flex items-center gap-3 shrink-0">
           <p className="text-xs text-smoke sm:hidden text-center">
-            Message us on WhatsApp. No commitment.
+            Message us on WhatsApp for a quick response.
           </p>
           <MagneticButton
             onClick={() => window.open(WA_URL, "_blank")}

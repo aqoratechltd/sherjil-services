@@ -14,7 +14,7 @@ export default function LogoMarquee() {
         className="text-center text-xs font-mono text-smoke uppercase tracking-widest mb-10"
         style={{ fontFamily: "var(--font-mono)" }}
       >
-        Trusted by brands across the globe
+        Forms & platforms we work with
       </p>
 
       {/* Row 1 — forward */}

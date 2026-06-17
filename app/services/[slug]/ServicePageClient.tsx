@@ -1,135 +1,263 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  ArrowLeft, ArrowRight, CheckCircle2, Zap,
-  Film, Server, Brain, Layers, TrendingUp, Network,
-  Sparkles, Smartphone, Users, Globe, Database,
-  Link as LinkIcon, ShoppingCart, Cloud, ShieldCheck,
+  ArrowLeft, CheckCircle2, Brain,
+  Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
+  Users, Building2, ArrowLeftRight, TrendingUp, BarChart2, Sparkles, Briefcase,
+  BookOpen, FileSignature, Plane, Map, BedDouble,
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import CTABanner from "@/components/sections/CTABanner";
-
-const WA_BASE = "https://wa.me/923273001777";
-const waUrl = (service: string) =>
-  `${WA_BASE}?text=${encodeURIComponent(`Hi! I'd like to get a price for ${service}.`)}`;
-import { SERVICES } from "@/lib/utils";
+import { SERVICES, WA_URL } from "@/lib/utils";
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
-  Film, Server, Brain, Layers, TrendingUp, Network,
-  Sparkles, Smartphone, Users, Globe, Database,
-  Link: LinkIcon, ShoppingCart, Cloud, ShieldCheck,
+  Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
+  Users, Building2, ArrowLeftRight, TrendingUp, BarChart2, Sparkles, Briefcase, Brain,
+  BookOpen, FileSignature, Plane, Map, BedDouble,
 };
 
-// Service-specific details
-const SERVICE_DETAILS: Record<string, { features: string[]; process: string[]; tech: string[] }> = {
-  "ecommerce": {
+const waUrl = (service: string) =>
+  `${WA_URL}?text=${encodeURIComponent(`Hi! I'd like to book: ${service}.`)}`;
+
+const SERVICE_DETAILS: Record<string, { features: string[]; process: string[]; tags: string[] }> = {
+  "us-passport": {
     features: [
-      "Ecommerce store setup and optimization (Shopify, WooCommerce, Custom)",
-      "Conversion rate optimization (CRO)",
-      "Product listing and catalog management",
-      "Abandoned cart recovery strategies",
-      "Customer retention and loyalty programs",
-      "Ecommerce SEO",
-      "Email and SMS marketing for ecommerce"
+      "New passport application or renewal assistance",
+      "Document checklist and preparation guidance",
+      "Conditional intake: new vs. renewal workflow",
+      "Secure document review and verification",
+      "Form DS-11 / DS-82 completion support",
+      "Photo requirement guidance",
+      "Submission tracking assistance",
     ],
-    process: ["Strategy", "Setup & Optimization", "Launch", "Growth & Retention"],
-    tech: ["Shopify", "WooCommerce", "Next.js", "Klaviyo", "Stripe"],
+    process: ["Inquiry", "New or Renewal Check", "Document Upload", "Form Completion", "Submission"],
+    tags: ["USCIS", "DS-11", "DS-82", "Passport Renewal"],
   },
-  "smm": {
+  "i130-visa": {
     features: [
-      "Social media strategy and content calendar",
-      "Content creation (graphics, reels, captions)",
-      "Community management and engagement",
-      "Instagram, Facebook, TikTok, LinkedIn, YouTube management",
-      "Influencer collaboration and outreach",
-      "Paid social campaigns (Meta, TikTok, LinkedIn Ads)",
-      "Monthly analytics and reporting"
+      "I-130 Petition for Alien Relative filing support",
+      "Family-based immigration guidance",
+      "Evidence compilation and checklist",
+      "Supporting document preparation",
+      "Filing fee guidance",
+      "Status follow-up assistance",
+      "Priority Date tracking",
     ],
-    process: ["Strategy", "Content Creation", "Community Management", "Paid Social", "Analytics"],
-    tech: ["Meta Ads", "TikTok Ads", "Later", "Hootsuite", "Figma"],
+    process: ["Eligibility Check", "Document Gathering", "Form I-130 Completion", "Filing", "Follow-up"],
+    tags: ["I-130", "Family Petition", "USCIS", "Immigration"],
   },
-  "seo": {
+  "sponsor-form": {
     features: [
-      "SEO audit and competitor analysis",
-      "Keyword research and strategy",
-      "On-page optimization",
-      "Technical SEO (site speed, Core Web Vitals, schema)",
-      "Link building and off-page SEO",
-      "Local SEO for location-based businesses",
-      "Monthly performance reporting"
+      "Form I-864 Affidavit of Support preparation",
+      "Income documentation guidance",
+      "Household size calculation",
+      "Supporting evidence assembly",
+      "Joint sponsor arrangement guidance",
+      "Review before submission",
     ],
-    process: ["Audit", "Keyword Strategy", "On-Page & Technical", "Link Building", "Reporting"],
-    tech: ["Ahrefs", "Semrush", "Google Analytics", "Google Search Console", "Screaming Frog"],
+    process: ["Income Assessment", "Document Collection", "I-864 Completion", "Evidence Review", "Submission Ready"],
+    tags: ["I-864", "Affidavit of Support", "USCIS", "Sponsorship"],
   },
-  "development": {
+  "green-card-renewal": {
     features: [
-      "Business websites and landing pages",
-      "Ecommerce store development",
-      "Custom web application development",
-      "iOS and Android app development",
-      "UI/UX design",
-      "Website maintenance and support",
-      "Speed and performance optimization"
+      "Form I-90 (Green Card Renewal) completion",
+      "Eligibility confirmation",
+      "Biometrics appointment guidance",
+      "Document checklist preparation",
+      "Secure document upload support",
+      "Status monitoring assistance",
     ],
-    process: ["UX/UI Design", "Frontend Dev", "Backend Integration", "QA Testing", "Launch & Maintenance"],
-    tech: ["Next.js", "React Native", "Tailwind CSS", "Node.js", "Figma"],
+    process: ["Eligibility Check", "I-90 Form Prep", "Document Upload", "Biometrics Guidance", "Status Tracking"],
+    tags: ["I-90", "Green Card", "Permanent Resident", "USCIS"],
   },
-  "performance-marketing": {
+  "green-card-waiver": {
     features: [
-      "Google Search & Display Ads",
-      "Meta Ads (Facebook & Instagram)",
-      "TikTok and YouTube Ads",
-      "Retargeting campaigns",
-      "Landing page creation and CRO",
-      "Full-funnel campaign strategy",
-      "Weekly reporting and performance reviews"
+      "Form I-912 (Fee Waiver) preparation",
+      "Income and hardship documentation",
+      "Supporting evidence structural indexing",
+      "Eligibility assessment",
+      "Submission package preparation",
     ],
-    process: ["Funnel Strategy", "Ad Creation", "Campaign Launch", "A/B Testing", "Scaling"],
-    tech: ["Google Ads", "Meta Ads", "TikTok Ads Manager", "Google Tag Manager", "Unbounce"],
+    process: ["Eligibility Review", "Hardship Documentation", "I-912 Completion", "Evidence Package", "Submission"],
+    tags: ["I-912", "Fee Waiver", "Green Card", "USCIS"],
   },
-  "lead-generation": {
+  "citizenship-application": {
     features: [
-      "Lead generation strategy and funnel design",
-      "Landing page creation",
-      "Lead magnet development",
-      "Email and WhatsApp nurture sequences",
-      "CRM setup and integration",
-      "LinkedIn lead generation",
-      "B2B and B2C lead campaigns"
+      "Form N-400 (Naturalization) completion",
+      "Eligibility check (5-year / 3-year rule)",
+      "Civics test preparation resources",
+      "Document checklist and review",
+      "Interview preparation tips",
+      "Status tracking guidance",
     ],
-    process: ["Lead Magnet Strategy", "Funnel Build", "Traffic Generation", "Nurture Sequences", "CRM Handoff"],
-    tech: ["HubSpot", "Salesforce", "ActiveCampaign", "LinkedIn Ads", "Zapier"],
+    process: ["Eligibility Check", "N-400 Preparation", "Document Review", "Interview Prep", "Oath Ceremony Guidance"],
+    tags: ["N-400", "Naturalization", "Citizenship", "USCIS"],
   },
-  "branding": {
+  "citizenship-waiver": {
     features: [
-      "Brand strategy and positioning",
-      "Logo design and visual identity",
-      "Brand guidelines and style guide",
-      "Brand messaging and tone of voice",
-      "Marketing collateral design",
-      "Social media branding kit",
-      "Brand refresh and rebranding"
+      "Form N-912 (Citizenship Fee Waiver) preparation",
+      "Income verification documentation",
+      "Background documentation compilation",
+      "Waiver eligibility assessment",
+      "Submission package review",
     ],
-    process: ["Discovery", "Brand Strategy", "Visual Identity Concept", "Guidelines Creation", "Rollout"],
-    tech: ["Figma", "Adobe CC", "Illustrator", "Photoshop", "Canva"],
+    process: ["Eligibility Assessment", "N-912 Completion", "Income Documentation", "Evidence Package", "Submission"],
+    tags: ["N-912", "Fee Waiver", "Citizenship", "USCIS"],
+  },
+  "pk-passport": {
+    features: [
+      "New Pakistani passport application support",
+      "Passport renewal assistance (standard & urgent)",
+      "Document checklist preparation",
+      "Form filling and review",
+      "Photo requirement guidance",
+      "Online application portal walkthrough",
+      "Remote handling — no travel required",
+    ],
+    process: ["Initial Inquiry", "New or Renewal Check", "Document Preparation", "Application Submission", "Tracking & Delivery"],
+    tags: ["Pakistani Passport", "Nadra", "Renewal", "Pakistan Docs"],
+  },
+  "nicop": {
+    features: [
+      "NICOP new application assistance",
+      "NICOP renewal support",
+      "Nadra online portal guidance",
+      "Document checklist and verification",
+      "Biometric requirements guidance",
+      "Form B and supporting documents review",
+      "Remote handling — no visit to Pakistan required",
+    ],
+    process: ["Eligibility Check", "Document Checklist", "Application Form", "Nadra Submission", "Card Delivery Tracking"],
+    tags: ["NICOP", "Nadra", "Overseas Pakistanis", "Identity Card"],
+  },
+  "power-of-attorney": {
+    features: [
+      "POA document drafting and review",
+      "General and special POA preparation",
+      "Notarization and attestation guidance",
+      "Embassy or consulate attestation support",
+      "Pakistan MOFA attestation guidance",
+      "Remote handling for overseas Pakistanis",
+    ],
+    process: ["Purpose Assessment", "Document Drafting", "Notarization Guidance", "Attestation", "Final Delivery"],
+    tags: ["Power of Attorney", "POA", "MOFA", "Attestation"],
+  },
+  "nadra-services": {
+    features: [
+      "Nadra Identity Card (CNIC) assistance",
+      "Family Registration Certificate (FRC)",
+      "Birth, death, and marriage certificate support",
+      "Nadra online portal guidance",
+      "Document verification and correction support",
+      "Remote support for overseas Pakistanis",
+    ],
+    process: ["Needs Assessment", "Document Collection", "Application Preparation", "Nadra Submission", "Follow-up & Delivery"],
+    tags: ["Nadra", "CNIC", "FRC", "Pakistan Documents"],
+  },
+  "digital-account": {
+    features: [
+      "Step-by-step remote bank account setup",
+      "HBL, Meezan, UBL, or other bank guidance",
+      "Online/app-based account provisioning",
+      "Account verification and activation support",
+      "Easypaisa / JazzCash digital wallet setup",
+      "Document requirements guidance",
+    ],
+    process: ["Bank Selection", "Document Prep", "Application Walkthrough", "Verification", "Account Activated"],
+    tags: ["HBL", "Meezan", "Easypaisa", "JazzCash", "Pakistan Banking"],
+  },
+  "money-transfer": {
+    features: [
+      "International money transfer platform setup",
+      "Remittance routing optimization",
+      "Wise, Remitly, or local platform setup",
+      "Account verification and linking",
+      "Transfer testing and confirmation",
+      "Best rate guidance",
+    ],
+    process: ["Platform Selection", "Account Setup", "Verification", "Test Transfer", "Ongoing Support"],
+    tags: ["Wise", "Remitly", "Global Remittance", "Money Transfer"],
+  },
+  "stock-basic": {
+    features: [
+      "Stock market brokerage account setup",
+      "PSX (Pakistan Stock Exchange) registration",
+      "CDC account opening",
+      "1 foundational training session (live)",
+      "Market basics: how stocks work",
+      "Portfolio setup guidance",
+      "Post-session Q&A",
+    ],
+    process: ["Account Registration", "CDC Setup", "KYC Completion", "Training Session", "Portfolio Guidance"],
+    tags: ["PSX", "CDC", "Brokerage", "Stock Market", "Basic Training"],
+  },
+  "stock-premium": {
+    features: [
+      "Stock market brokerage account setup",
+      "PSX + CDC account opening",
+      "Multi-part live training curriculum",
+      "Intermediate-level investment strategies",
+      "Technical analysis fundamentals",
+      "Risk management training",
+      "Ongoing email support post-training",
+    ],
+    process: ["Account Setup", "CDC Registration", "Curriculum Schedule", "Multi-Session Training", "Support Access"],
+    tags: ["PSX", "CDC", "Premium Training", "Investment Strategy", "Technical Analysis"],
+  },
+  "resume-normal": {
+    features: [
+      "Professional structural layout redesign",
+      "Modern formatting optimization",
+      "Content narrative enhancement",
+      "PDF/DOCX existing resume intake required",
+      "ATS-friendly formatting",
+      "1 revision round",
+      "48–72 hr turnaround",
+    ],
+    process: ["Resume Upload", "Content Review", "Rewrite & Format", "Revision", "Delivery"],
+    tags: ["Resume", "ATS", "Job Search", "Formatting"],
+  },
+  "resume-professional": {
+    features: [
+      "High-impact professional resume re-engineering",
+      "Corporate industry positioning",
+      "Algorithmic ATS keyword tuning",
+      "Multi-slot file upload and job spec intake",
+      "Target job description analysis",
+      "2 revision rounds",
+      "Cover letter guidance",
+    ],
+    process: ["Resume & Job Spec Upload", "Industry Analysis", "ATS Optimization", "Rewrite", "Revisions & Delivery"],
+    tags: ["Professional Resume", "ATS", "Corporate", "Keyword Optimization"],
+  },
+  "job-hunt": {
+    features: [
+      "All-inclusive job search strategy",
+      "Pipeline optimization and tracking",
+      "Hands-on application submission support",
+      "LinkedIn profile optimization",
+      "Interview preparation coaching",
+      "15-min discovery call or full career questionnaire",
+      "Dedicated support for the duration",
+    ],
+    process: ["Discovery Call / Questionnaire", "Strategy Design", "Application Pipeline", "Interview Prep", "Offer Negotiation Guidance"],
+    tags: ["Job Hunt", "LinkedIn", "Career Strategy", "Interview Prep"],
   },
 };
 
-// Default details for unlisted services
 const DEFAULT_DETAILS = {
   features: [
-    "End-to-end project ownership",
-    "Dedicated senior engineering team",
-    "Agile sprints with weekly demos",
-    "Architecture review & documentation",
-    "Security-first development practices",
-    "Post-launch support & SLAs",
+    "Professional end-to-end handling",
+    "Dedicated support team",
+    "Clear step-by-step process",
+    "Document review and preparation",
+    "Status tracking and follow-up",
+    "Remote-ready — no travel required",
   ],
-  process: ["Discovery", "Architecture", "Development", "Testing", "Launch & Support"],
-  tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker", "AWS", "Redis", "Prisma"],
+  process: ["Inquiry", "Document Preparation", "Application", "Review", "Completion"],
+  tags: ["Sherjil Services", "Professional Assistance"],
 };
 
 interface Props {
@@ -139,9 +267,10 @@ interface Props {
 export default function ServicePageClient({ service }: Props) {
   const Icon = ICON_MAP[service.icon] || Brain;
   const details = SERVICE_DETAILS[service.id] || DEFAULT_DETAILS;
-
-  // Related services (exclude current)
-  const related = SERVICES.filter((s) => s.id !== service.id).slice(0, 4);
+  const related = SERVICES.filter((s) => s.id !== service.id && s.category === service.category).slice(0, 4);
+  const moreRelated = related.length < 4
+    ? [...related, ...SERVICES.filter((s) => s.id !== service.id && s.category !== service.category)].slice(0, 4)
+    : related;
 
   return (
     <>
@@ -154,16 +283,8 @@ export default function ServicePageClient({ service }: Props) {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back link */}
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="mb-12"
-          >
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm text-mist hover:text-ghost transition-colors"
-            >
+          <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="mb-12">
+            <Link href="/services" className="inline-flex items-center gap-2 text-sm text-mist hover:text-ghost transition-colors">
               <ArrowLeft className="w-4 h-4" />
               All Services
             </Link>
@@ -171,7 +292,6 @@ export default function ServicePageClient({ service }: Props) {
 
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              {/* Category */}
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -181,7 +301,6 @@ export default function ServicePageClient({ service }: Props) {
                 {service.category}
               </motion.span>
 
-              {/* Title */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -212,18 +331,7 @@ export default function ServicePageClient({ service }: Props) {
                   className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-medium text-sm"
                   style={{ backgroundColor: service.color }}
                 >
-                  Start This Project
-                </MagneticButton>
-                <MagneticButton
-                  onClick={() => window.open(waUrl(service.title), "_blank")}
-                  className="px-7 py-3.5 rounded-xl text-white font-medium text-sm bg-[#25D366] hover:bg-[#1ebe5d] transition-colors"
-                >
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <svg viewBox="0 0 24 24" width="16" height="16" style={{ display: 'block', flexShrink: 0 }} fill="currentColor" aria-hidden="true">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-                    </svg>
-                    Get Price
-                  </span>
+                  Book This Service
                 </MagneticButton>
                 <Link
                   href="/contact"
@@ -255,14 +363,18 @@ export default function ServicePageClient({ service }: Props) {
                 >
                   <Icon className="w-10 h-10" style={{ color: service.color }} />
                 </div>
-                <h3 className="font-display font-bold text-ghost text-2xl mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="font-display font-bold text-ghost text-xl mb-1" style={{ fontFamily: "var(--font-display)" }}>
                   {service.title}
                 </h3>
-                <p className="text-mist text-sm mb-6">{service.category} Division</p>
-
-                {/* Tech stack */}
+                <p className="text-mist text-sm mb-2">{service.category}</p>
+                <p
+                  className="text-2xl font-display font-extrabold mb-6"
+                  style={{ color: service.color, fontFamily: "var(--font-display)" }}
+                >
+                  {service.price}
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {details.tech.map((t) => (
+                  {details.tags.map((t) => (
                     <span
                       key={t}
                       className="text-xs font-mono px-3 py-1 rounded-full"
@@ -283,16 +395,12 @@ export default function ServicePageClient({ service }: Props) {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features & Process */}
       <section className="py-14 md:py-24 border-t border-white/[0.04]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-            {/* What's included */}
             <div>
-              <h2
-                className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-6 md:mb-8"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-6 md:mb-8" style={{ fontFamily: "var(--font-display)" }}>
                 What&apos;s Included
               </h2>
               <ul className="space-y-4">
@@ -312,13 +420,9 @@ export default function ServicePageClient({ service }: Props) {
               </ul>
             </div>
 
-            {/* Our Process */}
             <div>
-              <h2
-                className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-6 md:mb-8"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Our Process
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-6 md:mb-8" style={{ fontFamily: "var(--font-display)" }}>
+                How It Works
               </h2>
               <div className="space-y-4">
                 {details.process.map((step, i) => (
@@ -346,34 +450,32 @@ export default function ServicePageClient({ service }: Props) {
       </section>
 
       {/* Related Services */}
-      <section className="py-14 md:py-24 border-t border-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-8 md:mb-10"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Related Services
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {related.map((s) => {
-              const RelIcon = ICON_MAP[s.icon] || Brain;
-              return (
-                <Link
-                  key={s.id}
-                  href={`/services/${s.id}`}
-                  className="group p-5 rounded-xl glass border border-white/[0.06] hover:border-electric/20 transition-all duration-200"
-                >
-                  <RelIcon className="w-6 h-6 mb-3" style={{ color: s.color }} />
-                  <p className="font-medium text-ghost text-sm group-hover:text-white transition-colors">
-                    {s.title}
-                  </p>
-                  <p className="text-xs text-smoke mt-1">{s.category}</p>
-                </Link>
-              );
-            })}
+      {moreRelated.length > 0 && (
+        <section className="py-14 md:py-24 border-t border-white/[0.04]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-ghost mb-8 md:mb-10" style={{ fontFamily: "var(--font-display)" }}>
+              Related Services
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {moreRelated.map((s) => {
+                const RelIcon = ICON_MAP[s.icon] || Brain;
+                return (
+                  <Link
+                    key={s.id}
+                    href={`/services/${s.id}`}
+                    className="group p-5 rounded-xl glass border border-white/[0.06] hover:border-electric/20 transition-all duration-200"
+                  >
+                    <RelIcon className="w-6 h-6 mb-3" style={{ color: s.color }} />
+                    <p className="font-medium text-ghost text-sm group-hover:text-white transition-colors">{s.title}</p>
+                    <p className="text-xs text-smoke mt-1">{s.category}</p>
+                    <p className="text-xs font-mono mt-2" style={{ color: s.color, fontFamily: "var(--font-mono)" }}>{s.price}</p>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <CTABanner />
     </>

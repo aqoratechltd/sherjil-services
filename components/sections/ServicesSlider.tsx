@@ -4,7 +4,14 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { pricingServices } from "@/lib/pricing-data";
+import { SERVICES } from "@/lib/utils";
+
+const CATEGORY_ORDER = ["Immigration", "Pakistan Docs", "Financial", "Career"];
+
+// Group services by category in a flat ordered list
+const ORDERED_SERVICES = CATEGORY_ORDER.flatMap((cat) =>
+  SERVICES.filter((s) => s.category === cat)
+);
 
 export default function ServicesSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -72,9 +79,9 @@ export default function ServicesSlider() {
           msOverflowStyle: "none",
         }}
       >
-        {pricingServices.map((service, i) => (
+        {ORDERED_SERVICES.map((service, i) => (
           <motion.div
-            key={service.slug}
+            key={service.id}
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -100,7 +107,7 @@ export default function ServicesSlider() {
 
               {/* Title */}
               <h3
-                className="font-display font-bold text-ghost text-lg leading-tight mb-3"
+                className="font-display font-bold text-ghost text-base leading-tight mb-3"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {service.title}
@@ -113,29 +120,29 @@ export default function ServicesSlider() {
                   : service.description}
               </p>
 
-              {/* Starting price */}
+              {/* Price */}
               <div className="mb-5">
                 <p
                   className="text-[10px] font-mono text-smoke uppercase tracking-widest mb-1"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
-                  Starting from
+                  Price
                 </p>
                 <p
                   className="font-display font-bold text-xl"
                   style={{ color: service.color, fontFamily: "var(--font-display)" }}
                 >
-                  {service.startingFrom}
+                  {service.price}
                 </p>
               </div>
 
               {/* CTA */}
               <Link
-                href={`/services/${service.slug}`}
+                href={`/services/${service.id}`}
                 className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest transition-all group-hover:gap-3"
                 style={{ color: service.color, fontFamily: "var(--font-mono)" }}
               >
-                View Details
+                Book Now
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
