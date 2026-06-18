@@ -15,7 +15,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const saved = localStorage.getItem("aqora-theme") as Theme | null;
+    const saved = localStorage.getItem("sherjil-theme") as Theme | null;
     const resolved = saved ?? "dark";
     setTheme(resolved);
     document.documentElement.setAttribute("data-theme", resolved);
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    localStorage.setItem("aqora-theme", next);
+    localStorage.setItem("sherjil-theme", next);
     document.documentElement.setAttribute("data-theme", next);
   };
 

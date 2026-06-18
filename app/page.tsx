@@ -7,7 +7,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Aqora — Digital Marketing Agency",
+  title: "Home",
 };
 
 export default function HomePage() {
