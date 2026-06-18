@@ -5,21 +5,23 @@ import { motion } from "framer-motion";
 import { CONTACT_PHONE, CONTACT_EMAIL, WA_URL } from "@/lib/utils";
 
 const FOOTER_LINKS = {
-  "Immigration": [
+  "Services": [
     { label: "Passport Application / Renewal", href: "/services/us-passport" },
     { label: "I-130 Visa Petition", href: "/services/i130-visa" },
+    { label: "Pakistani Passport", href: "/services/pk-passport" },
+    { label: "NICOP Application", href: "/services/nicop" },
+    { label: "Digital Account Opening", href: "/services/digital-account" },
+    { label: "Resume Writing", href: "/services/resume-normal" },
+    { label: "Travel Visa (e-Visa)", href: "/travel#travel-visa" },
+  ],
+  "Other Services": [
     { label: "Green Card Renewal", href: "/services/green-card-renewal" },
     { label: "Citizenship Application", href: "/services/citizenship-application" },
     { label: "Fee Waiver Assistance", href: "/services/green-card-waiver" },
-  ],
-  "Other Services": [
-    { label: "Pakistani Passport", href: "/services/pk-passport" },
-    { label: "NICOP Application", href: "/services/nicop" },
-    { label: "Power of Attorney", href: "/services/power-of-attorney" },
-    { label: "Digital Account Opening", href: "/services/digital-account" },
     { label: "Stock Market Training", href: "/services/stock-basic" },
-    { label: "Resume Writing", href: "/services/resume-normal" },
     { label: "Job Hunt Support", href: "/services/job-hunt" },
+    { label: "Trip Planning", href: "/travel#trip-planning" },
+    { label: "Hotel Booking Service", href: "/travel#hotel-booking" },
   ],
   "Company": [
     { label: "About Us", href: "/about" },
@@ -27,6 +29,9 @@ const FOOTER_LINKS = {
     { label: "Travel Services", href: "/travel" },
     { label: "Contact", href: "/contact" },
     { label: "WhatsApp Us", href: WA_URL },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
   ],
 };
 

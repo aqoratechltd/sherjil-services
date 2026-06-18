@@ -139,11 +139,11 @@ export default function ServicesSlider() {
               {/* CTA */}
               <Link
                 href={`/services/${service.id}`}
-                className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest transition-all group-hover:gap-3"
+                className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest transition-all group-hover:gap-3 whitespace-nowrap"
                 style={{ color: service.color, fontFamily: "var(--font-mono)" }}
               >
                 Book Now
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
               </Link>
             </div>
           </motion.div>

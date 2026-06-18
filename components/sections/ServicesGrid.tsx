@@ -72,10 +72,10 @@ export default function ServicesGrid() {
             >
               <Link
                 href="/services"
-                className="flex items-center gap-2 text-sm text-mist hover:text-electric transition-colors group"
+                className="flex items-center gap-2 text-sm text-mist hover:text-electric transition-colors group whitespace-nowrap"
               >
                 View all services
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </div>
@@ -173,9 +173,9 @@ export default function ServicesGrid() {
                   <p className="text-sm text-smoke leading-relaxed flex-1">{service.description}</p>
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-1 mt-4 text-xs text-smoke group-hover:text-electric transition-colors">
+                  <div className="flex items-center gap-1 mt-4 text-xs text-smoke group-hover:text-electric transition-colors whitespace-nowrap">
                     <span>Book Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               </motion.div>

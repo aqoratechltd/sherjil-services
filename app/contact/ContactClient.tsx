@@ -164,9 +164,9 @@ export default function ContactClient() {
                 <p className="text-sm text-mist mb-4 leading-relaxed">
                   Message us directly on WhatsApp for a fast response — usually within a few hours.
                 </p>
-                <div className="flex items-center gap-2 text-sm text-electric group-hover:gap-3 transition-all">
+                <div className="flex items-center gap-2 text-sm text-electric group-hover:gap-3 transition-all whitespace-nowrap">
                   Chat Now
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 flex-shrink-0" />
                 </div>
               </motion.div>
 

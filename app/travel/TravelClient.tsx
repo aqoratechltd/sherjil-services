@@ -228,11 +228,11 @@ export default function TravelClient() {
                         "_blank"
                       )
                     }
-                    className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-medium text-sm"
+                    className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-medium text-sm whitespace-nowrap"
                     style={{ backgroundColor: TRAVEL_COLOR }}
                   >
                     Book This Service
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 flex-shrink-0" />
                   </MagneticButton>
                 </div>
 

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import PolicyLayout from "@/components/ui/PolicyLayout";
+import { CONTACT_EMAIL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | Aqora",
-  description: "How Aqora uses cookies and similar tracking technologies on its website.",
+  title: "Cookie Policy | Sherjil Services",
+  description: "How Sherjil Services uses cookies and similar tracking technologies on its website.",
 };
 
 const sections = [
@@ -21,7 +22,7 @@ const sections = [
   },
   {
     title: "4. Third-Party Cookies",
-    body: `Some cookies on our site are set by third-party services we use, including:\n\n• Google Analytics — web analytics\n• Calendly — meeting scheduling\n• Vercel — hosting and performance monitoring\n\nThese third parties have their own privacy and cookie policies, and we encourage you to review them.`,
+    body: `Some cookies on our site are set by third-party services we use, including:\n\n• Google Analytics — web analytics\n• WhatsApp Business — client messaging and support\n• Vercel — hosting and performance monitoring\n\nThese third parties have their own privacy and cookie policies, and we encourage you to review them.`,
   },
   {
     title: "5. Your Cookie Choices",
@@ -37,7 +38,7 @@ const sections = [
   },
   {
     title: "8. Contact Us",
-    body: `If you have questions about how we use cookies, contact us at aqoratech@gmail.com.`,
+    body: `If you have questions about how we use cookies, contact us at ${CONTACT_EMAIL}.`,
   },
 ];
 

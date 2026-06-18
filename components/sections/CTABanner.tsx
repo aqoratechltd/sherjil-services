@@ -33,7 +33,7 @@ export default function CTABanner() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
           <p className="text-xs text-smoke sm:hidden text-center">
             Message us on WhatsApp for a quick response.
           </p>

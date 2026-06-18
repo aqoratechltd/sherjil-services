@@ -1,63 +1,60 @@
 import { Metadata } from "next";
 import PolicyLayout from "@/components/ui/PolicyLayout";
+import { CONTACT_EMAIL } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Aqora",
-  description: "The terms governing your use of Aqora's website and services.",
+  title: "Terms of Service | Sherjil Services",
+  description: "The terms governing your use of Sherjil Services' website and facilitation services.",
 };
 
 const sections = [
   {
     title: "1. Acceptance of Terms",
-    body: `By accessing this website or engaging Aqora for services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.`,
+    body: `By accessing this website or engaging Sherjil Services ("we", "us", "our") for any service, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site or our services.`,
   },
   {
-    title: "2. Services",
-    body: `Aqora provides software development, digital marketing, branding, SEO, and related professional services. The specific scope, deliverables, timelines, and fees for any engagement are defined in a separate Statement of Work (SOW) or service agreement signed by both parties. These Terms govern the general relationship and supplement — but do not replace — any such agreement.`,
+    title: "2. Nature of Our Services",
+    body: `Sherjil Services is a facilitation and documentation-assistance provider. We help clients prepare, complete, and submit paperwork for U.S. immigration matters, Pakistani documents (passport, NICOP, NADRA), financial-account opening, career services, and travel arrangements (visas, trip planning, hotel bookings).\n\nWe are not a law firm, immigration attorney, government agency, bank, or travel operator. We do not provide legal advice, guarantee approval of any application, or guarantee outcomes from any government agency, financial institution, consulate, or airline. Final decisions rest entirely with the relevant third-party authority or institution.`,
   },
   {
     title: "3. Client Responsibilities",
-    body: `To enable us to deliver your project effectively, you agree to:\n\n• Provide accurate, complete, and timely information, feedback, and approvals\n• Ensure you have the legal right to share any assets, content, or intellectual property you provide to us\n• Designate a single point of contact with authority to approve deliverables\n• Make payments in accordance with the agreed payment schedule\n\nDelays caused by failure to meet these responsibilities may affect timelines and may result in additional charges.`,
+    body: `To enable us to process your request effectively, you agree to:\n\n• Provide accurate, complete, and truthful information and documentation\n• Ensure you have the legal right to provide any identification, passport, or financial documents you share with us\n• Respond promptly to requests for additional information or signatures\n• Make payments in accordance with the agreed service fee\n\nDelays or rejections caused by inaccurate, incomplete, or fraudulent information provided by you are your sole responsibility, and we are not liable for any resulting loss.`,
   },
   {
-    title: "4. Payment Terms",
-    body: `Unless otherwise agreed in writing:\n\n• Projects require a deposit (typically 50%) before work commences\n• Remaining balances are due upon delivery or at agreed milestone dates\n• Invoices are payable within 14 days of issue\n• Late payments attract interest at 8% per annum above the Bank of England base rate\n• We reserve the right to pause or suspend work on overdue accounts`,
+    title: "4. Fees & Payment",
+    body: `Service fees are as quoted on our website or as agreed directly with you before work begins. Unless otherwise agreed in writing:\n\n• Fees cover our facilitation and processing services only and do not include government, consulate, NADRA, bank, or third-party fees, which are payable separately\n• Payment is due before or upon submission of your application unless another arrangement is agreed\n• Fees already paid for work performed (e.g. document preparation, submission) are non-refundable once the relevant step has been completed\n• We reserve the right to pause or decline service on unpaid accounts`,
   },
   {
-    title: "5. Intellectual Property",
-    body: `Upon receipt of full payment, all custom work product created specifically for you under an engagement transfers to you as the client. This includes source code, designs, and written content unique to your project.\n\nWe retain ownership of:\n• Pre-existing tools, frameworks, libraries, and methodologies\n• Internal processes and know-how developed independently\n• Any work product for which payment has not been received in full\n\nWe reserve the right to display completed work in our portfolio and case studies unless you request otherwise in writing.`,
+    title: "5. No Guarantee of Outcome",
+    body: `We perform our services with reasonable care and diligence. However, approval of visas, passports, NICOP, citizenship, financial accounts, or any other application is determined solely by the relevant government agency, consulate, NADRA, bank, or institution. We do not guarantee approval, processing time, or any specific outcome, and we are not responsible for decisions made by third-party authorities.`,
   },
   {
     title: "6. Confidentiality",
-    body: `Both parties agree to keep confidential any proprietary or sensitive information disclosed during the engagement and not to disclose it to third parties without prior written consent. This obligation survives termination of the engagement for a period of 3 years.`,
+    body: `We treat the personal and identification information you share with us as confidential and use it only to deliver the service you have requested, in line with our Privacy Policy. We will not disclose your information to third parties except where necessary to complete your application or as required by law.`,
   },
   {
-    title: "7. Revisions & Change Requests",
-    body: `Each project phase includes a defined number of revision rounds as specified in the SOW. Requests that materially change the agreed scope, add new features, or require rework due to client-side changes will be treated as change requests and quoted separately.`,
+    title: "7. Cancellations & Refunds",
+    body: `You may request cancellation of a service before we begin processing your application for a full refund of our service fee. Once document preparation or submission has commenced, fees become non-refundable, as they reflect work already performed. Any third-party fees already paid to a government agency, consulate, NADRA, or bank are non-refundable by us and are subject to that third party's own refund policy.`,
   },
   {
-    title: "8. Warranties & Disclaimers",
-    body: `We warrant that our services will be performed with reasonable skill and care in accordance with industry standards. We do not warrant that our deliverables will be error-free or that your business will achieve any specific financial outcomes from our work.\n\nThis website and its content are provided "as is" without warranties of any kind, express or implied.`,
+    title: "8. Limitation of Liability",
+    body: `To the maximum extent permitted by law, our total liability for any claim arising from or related to our services shall not exceed the total service fees paid by you for the specific request giving rise to the claim. We shall not be liable for indirect, incidental, special, or consequential damages, including delays, rejections, or losses caused by third-party agencies, institutions, or incorrect information provided by you.`,
   },
   {
-    title: "9. Limitation of Liability",
-    body: `To the maximum extent permitted by law, Aqora's total liability for any claim arising from or related to our services shall not exceed the total fees paid by you for the specific engagement giving rise to the claim in the 3 months preceding the claim.\n\nWe shall not be liable for indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, loss of data, or business interruption.`,
+    title: "9. Termination",
+    body: `We may decline or discontinue service to any client at our discretion, including where information provided appears inaccurate, fraudulent, or where a request falls outside the scope of services we offer. Where we discontinue a service before completing the requested work, any unused portion of fees paid will be refunded.`,
   },
   {
-    title: "10. Termination",
-    body: `Either party may terminate an engagement by giving 14 days' written notice. Upon termination:\n\n• You will pay for all work completed to the termination date at the pro-rata rate\n• We will deliver all completed work product for which full payment has been received\n• Confidentiality obligations survive termination`,
+    title: "10. Governing Law",
+    body: `These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Sherjil Services operates. Any disputes arising from these Terms or our services shall be resolved through good-faith negotiation in the first instance.`,
   },
   {
-    title: "11. Governing Law",
-    body: `These Terms shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising from these Terms or our services shall be subject to the exclusive jurisdiction of the courts of England and Wales.`,
-  },
-  {
-    title: "12. Changes to These Terms",
+    title: "11. Changes to These Terms",
     body: `We reserve the right to update these Terms at any time. Updated terms will be posted on this page with a revised effective date. Continued use of our website or services after changes constitutes acceptance of the new terms.`,
   },
   {
-    title: "13. Contact",
-    body: `Questions about these Terms? Reach us at aqoratech@gmail.com.`,
+    title: "12. Contact",
+    body: `Questions about these Terms? Reach us at ${CONTACT_EMAIL}.`,
   },
 ];
 

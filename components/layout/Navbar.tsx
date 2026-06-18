@@ -16,24 +16,24 @@ import { useTheme } from "@/components/ui/ThemeProvider";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services", hasDropdown: true },
-  { label: "Travel", href: "/travel" },
+  { label: "Packages & Deals", href: "/travel" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 const MENU_SECTIONS = [
   {
-    heading: "US Immigration & Travel",
+    heading: "US Immigration",
     color: "#0066FF",
     Icon: Globe,
     items: [
       { label: "Passport Application / Renewal", href: "/services/us-passport",           tag: "$50",  Icon: Globe       },
-      { label: "I-130 Visa Petition",             href: "/services/i130-visa",                         Icon: FileText    },
-      { label: "Sponsor Form Completion",          href: "/services/sponsor-form",                      Icon: Clipboard   },
-      { label: "Green Card Renewal",               href: "/services/green-card-renewal",                Icon: CreditCard  },
-      { label: "Green Card Fee Waiver",            href: "/services/green-card-waiver",                 Icon: ShieldCheck },
-      { label: "Citizenship Application",          href: "/services/citizenship-application",           Icon: Award       },
-      { label: "Citizenship Fee Waiver",           href: "/services/citizenship-waiver",                Icon: BadgeCheck  },
+      { label: "I-130 Visa Petition",             href: "/services/i130-visa",             tag: "$200", Icon: FileText    },
+      { label: "Sponsor Form Completion",          href: "/services/sponsor-form",          tag: "$150", Icon: Clipboard   },
+      { label: "Green Card Renewal",               href: "/services/green-card-renewal",    tag: "$125", Icon: CreditCard  },
+      { label: "Green Card Fee Waiver",            href: "/services/green-card-waiver",     tag: "$100", Icon: ShieldCheck },
+      { label: "Citizenship Application",          href: "/services/citizenship-application",tag: "$150",Icon: Award       },
+      { label: "Citizenship Fee Waiver",           href: "/services/citizenship-waiver",    tag: "$100", Icon: BadgeCheck  },
     ],
   },
   {
@@ -43,8 +43,6 @@ const MENU_SECTIONS = [
     items: [
       { label: "Pakistani Passport",               href: "/services/pk-passport",        tag: "$50",   Icon: FileText    },
       { label: "NICOP Application or Renewal",     href: "/services/nicop",              tag: "$50",   Icon: CreditCard  },
-      { label: "Power of Attorney",                href: "/services/power-of-attorney",  tag: "Quote", Icon: ShieldCheck },
-      { label: "Nadra Card & Documents",           href: "/services/nadra-services",     tag: "Quote", Icon: Users       },
     ],
   },
   {

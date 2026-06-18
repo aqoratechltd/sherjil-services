@@ -26,25 +26,25 @@ export default function FloatingCTA() {
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0, opacity: 0, y: 20 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="fixed bottom-8 right-8 z-[9998] flex items-end gap-3"
+          className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-[9998] flex items-end gap-3 max-w-[calc(100vw-2rem)]"
         >
           {/* Label bubble */}
           <motion.div
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="glass rounded-xl px-4 py-2 border border-white/[0.08] text-sm text-ghost mb-1"
+            className="hidden sm:block glass rounded-xl px-4 py-2 border border-white/[0.08] text-sm text-ghost mb-1 whitespace-nowrap"
           >
             Chat on WhatsApp →
           </motion.div>
 
           {/* Main button */}
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             {/* Pulse rings */}
             <span className="absolute inset-0 rounded-full bg-electric/30 animate-ping" />
             <button
               onClick={() => window.open(WA_URL, "_blank")}
-              className="relative w-14 h-14 rounded-full bg-electric electric-glow flex items-center justify-center text-white hover:scale-110 transition-transform duration-200"
+              className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-electric electric-glow flex items-center justify-center text-white hover:scale-110 transition-transform duration-200"
               aria-label="Chat on WhatsApp"
             >
               {/* WhatsApp icon */}

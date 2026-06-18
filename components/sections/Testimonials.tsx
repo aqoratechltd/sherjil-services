@@ -66,7 +66,7 @@ export default function Testimonials() {
                 key={t.id}
                 onClick={() => !isDragging && setActiveIndex(i)}
                 className={cn(
-                  "relative flex-shrink-0 w-[380px] md:w-[420px] rounded-2xl p-8 border transition-all duration-300",
+                  "relative flex-shrink-0 w-[min(85vw,380px)] md:w-[420px] rounded-2xl p-6 sm:p-8 border transition-all duration-300",
                   activeIndex === i
                     ? "glass-electric border-electric/25 shadow-electric"
                     : "glass border-white/[0.06]"
