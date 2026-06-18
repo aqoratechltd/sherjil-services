@@ -16,7 +16,7 @@ import { useTheme } from "@/components/ui/ThemeProvider";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services", hasDropdown: true },
-  { label: "Packages & Deals", href: "/travel" },
+  { label: "Packages & Deals", href: "/packages" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

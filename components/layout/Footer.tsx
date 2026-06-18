@@ -26,6 +26,7 @@ const FOOTER_LINKS = {
   "Company": [
     { label: "About Us", href: "/about" },
     { label: "All Services", href: "/services" },
+    { label: "Packages & Deals", href: "/packages" },
     { label: "Travel Services", href: "/travel" },
     { label: "Contact", href: "/contact" },
     { label: "WhatsApp Us", href: WA_URL },
