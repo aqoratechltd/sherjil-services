@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +10,7 @@ import {
   Globe, FileText, ShieldCheck, Award, BadgeCheck, Clipboard, CreditCard,
   Users, Building2, ArrowLeftRight, TrendingUp, BarChart2,
   Sparkles, Briefcase, ArrowRight, Plane, Map, BedDouble,
+  Code, Brain, Cloud, Zap, Share2, Search,
 } from "lucide-react";
 import { cn, WA_URL } from "@/lib/utils";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -76,6 +78,28 @@ const MENU_SECTIONS = [
       { label: "Hotel Booking Service",            href: "/travel#hotel-booking",        tag: "$15",  Icon: BedDouble },
     ],
   },
+  {
+    heading: "Technology & AI",
+    color: "#7C3AED",
+    Icon: Brain,
+    items: [
+      { label: "Web & App Development",  href: "/services/web-app-development",  tag: "Custom", Icon: Code  },
+      { label: "AI Integrations",        href: "/services/ai-integrations",      tag: "Custom", Icon: Brain },
+      { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure", tag: "Custom", Icon: Cloud },
+      { label: "Business Automation",    href: "/services/business-automation",  tag: "Custom", Icon: Zap   },
+    ],
+  },
+  {
+    heading: "Marketing & Growth",
+    color: "#EC4899",
+    Icon: Share2,
+    items: [
+      { label: "Social Media Marketing", href: "/services/social-media-marketing", tag: "Custom", Icon: Share2     },
+      { label: "Performance Marketing",  href: "/services/performance-marketing",  tag: "Custom", Icon: TrendingUp },
+      { label: "Branding Services",      href: "/services/branding",               tag: "Custom", Icon: Award      },
+      { label: "SEO Services",           href: "/services/seo",                    tag: "Custom", Icon: Search     },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -113,7 +137,15 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="group flex items-center">
+            <Link href="/" className="group flex items-center gap-2.5">
+              <Image
+                src="/logo2.png"
+                alt="Sherjil Services"
+                width={32}
+                height={32}
+                className="rounded-md group-hover:opacity-90 transition-opacity duration-300"
+                priority
+              />
               <span
                 className="font-display font-bold text-xl text-ghost tracking-tight group-hover:opacity-90 transition-opacity duration-300"
                 style={{ fontFamily: "var(--font-display)" }}

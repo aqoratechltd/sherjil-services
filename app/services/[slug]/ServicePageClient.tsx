@@ -6,7 +6,7 @@ import {
   ArrowLeft, CheckCircle2, Brain,
   Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
   Users, Building2, ArrowLeftRight, TrendingUp, BarChart2, Sparkles, Briefcase,
-  BookOpen, FileSignature, Plane, Map, BedDouble,
+  BookOpen, FileSignature, Plane, Map, BedDouble, Code, Cloud, Zap, Share2, Search,
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import CTABanner from "@/components/sections/CTABanner";
@@ -15,7 +15,7 @@ import { SERVICES, WA_URL } from "@/lib/utils";
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
   Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
   Users, Building2, ArrowLeftRight, TrendingUp, BarChart2, Sparkles, Briefcase, Brain,
-  BookOpen, FileSignature, Plane, Map, BedDouble,
+  BookOpen, FileSignature, Plane, Map, BedDouble, Code, Cloud, Zap, Share2, Search,
 };
 
 const waUrl = (service: string) =>

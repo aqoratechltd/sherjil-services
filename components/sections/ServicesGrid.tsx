@@ -7,7 +7,7 @@ import {
   Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
   Users, Building2, ArrowLeftRight, TrendingUp, BarChart2,
   Sparkles, Briefcase, ArrowRight, Brain, BookOpen, FileSignature,
-  Plane, Map, BedDouble,
+  Plane, Map, BedDouble, Code, Cloud, Zap, Share2, Search,
 } from "lucide-react";
 import { SERVICES } from "@/lib/utils";
 import { cn } from "@/lib/utils";
@@ -16,10 +16,10 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?:
   Globe, FileText, Clipboard, CreditCard, ShieldCheck, Award, BadgeCheck,
   Users, Building2, ArrowLeftRight, TrendingUp, BarChart2,
   Sparkles, Briefcase, Brain, BookOpen, FileSignature,
-  Plane, Map, BedDouble,
+  Plane, Map, BedDouble, Code, Cloud, Zap, Share2, Search,
 };
 
-const CATEGORIES = ["All", "Immigration", "Pakistan Docs", "Travel", "Financial", "Career"] as const;
+const CATEGORIES = ["All", "Immigration", "Pakistan Docs", "Travel", "Financial", "Career", "Technology & AI", "Marketing & Growth"] as const;
 
 export default function ServicesGrid() {
   const ref = useRef<HTMLDivElement>(null);
